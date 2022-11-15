@@ -31,3 +31,15 @@ function finalSum() {
 //   Example -
 //   printList("Akshay")("Khurana")("Manisha")("Rahul") -
 //   Output - Names are -  Akshay, Khurana, Manisha, Rahul
+
+
+function  printList(name) {
+  return function (name1) {
+    return function (name2){
+      return function (name3){
+        return `Names are - ${name}, ${name1}, ${name2}, ${name3}`
+      }
+    }
+  }
+}
+ console.log(printList("Akshay")("Khurana")("Manisha")("Rahul"));
