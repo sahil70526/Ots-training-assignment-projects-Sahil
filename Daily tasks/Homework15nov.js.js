@@ -8,7 +8,7 @@ function finalSum() {
     return function (x, y) {
       if (obj[(x, y)]) {
         console.log(`previously done on this argument ${x} ${y} is : ${obj[(x,y)]}`);
-        console.log(obj);
+        // console.log(obj);
         return obj[(x, y)];
         
       }
@@ -16,7 +16,7 @@ function finalSum() {
       const result = x + y;
       obj[(x, y)] = result;
       console.log(result);
-      console.log(obj);
+      // console.log(obj);
     }
   }
   const output = finalSum();
