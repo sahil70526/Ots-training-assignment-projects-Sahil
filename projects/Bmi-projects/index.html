@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./index.js"></script>
+    <title>Bmi calculator</title>
 </head>
 <body>
-    
+   <div id="main" class="infocontent">
+   <h1>BMI CALCULATOR.</h1>
+   <form class="form">
+    <label for="heightField" id="height">Plaese provide your height in meteres</label><br>
+    <input type="text" id="heightField" class="heightField" autocomplete="off">
+   <br> <br>
+    <label for="weightField" id="weight">Plaese provide your weight in kg.</label><br>
+    <input type="text" id="weightField" class="weightField" autocomplete="off">
+    <br>
+    <input type="button" id="subt" value="Calculate" class="infoSubmit" onclick="checkBmi()">
+</form>
+    <p class="currentBmip">Current Bmi is : <span class="currentBmi"></span></p>
+    <p class="currentBmip">Previous records: <span class="bmiinfo"></span></p>
+            <p class="lowOrHi"></p>
+   </div>
 </body>
 </html>

@@ -1,0 +1,64 @@
+html {
+    font-family: sans-serif;
+  }
+
+ #height{
+    font-size:x-large;
+ }
+ #weight{
+    font-size:x-large;
+ }
+
+ #heightField{
+    font-size:x-large;
+    height:40px;
+    width:95%;
+    border: 2px solid rgb(247, 250, 249);
+    border-radius: 12px;
+ }
+ #weightField{
+    font-size:x-large;
+    height:40px;
+    width:95%;
+    border: 2px solid rgb(247, 250, 249);
+    border-radius: 12px;
+ }
+
+ #subt{
+    
+        background-color: rgb(240, 137, 240);
+        color: #fff;
+        width: 250px;
+        height: 70px;
+        border-radius: 12px;
+        font-size: 30px;
+        border-style: none;
+        margin-top: 30px;
+        margin-left: 50px;
+      }
+
+      .currentBmip{
+        font-size:large;
+      }
+
+      input{
+        text-align: center;
+      }
+ 
+
+div{
+    background-color:powderblue;
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height:450px;
+    width:45%;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 5%;
+    margin-left: 26%;
+}
+
+  
