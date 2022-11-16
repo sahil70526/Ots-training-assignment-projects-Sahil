@@ -16,14 +16,10 @@ function checkBmi() {
   }else{
     if (maxRecords >= 1) {
         previousRecords.push(result);
-        console.log(previousRecords);
         maxRecords = maxRecords - 1;
-        console.log(maxRecords);
       } else {
         previousRecords.splice(0, 1);
         previousRecords.push(result);
-        console.log(previousRecords);
-        maxRecords--;
       }
   }
  
