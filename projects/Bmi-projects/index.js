@@ -7,7 +7,7 @@ function checkBmi() {
 
   // ----------- main logic of bmi --------------
  
-    let result = Math.floor(weight / (height * height));
+    let result = Math.round(weight / (height * height));
 
 
   //logic for the bmi record pushing------------
@@ -39,8 +39,7 @@ function checkBmi() {
  
 
   const currentBmi = (document.querySelector(".currentBmi").innerHTML = result);
-  const bmislot = (document.querySelector(".bmiinfo").innerHTML =
-    previousRecords);
+  const bmislot = (document.querySelector(".bmiinfo").innerHTML = previousRecords);
   document.getElementById("heightField").value = " ";
   document.getElementById("weightField").value = " ";
 }
