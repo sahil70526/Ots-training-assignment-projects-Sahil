@@ -43,3 +43,17 @@ function  printList(name) {
   }
 }
  console.log(printList("Akshay")("Khurana")("Manisha")("Rahul"));
+
+//  setTimeout(() => {
+//   console.log("Delayed for 1 second.");
+// }, "1000")
+
+
+
+
+
+
+
+
+// Create a promise. Have it resolve with a value of 'Resolved!' in resolve after a delay of 1000ms, using setTimeout.
+// Create another promise. Now have it reject with a value of "Rejected!" without using setTimeout.
