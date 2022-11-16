@@ -39,3 +39,6 @@ function checkBmi() {
   document.getElementById("heightField").value = " ";
   document.getElementById("weightField").value = " ";
 }
+
+
+
