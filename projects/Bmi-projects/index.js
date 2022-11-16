@@ -7,7 +7,7 @@ function checkBmi() {
 
   // ----------- main logic of bmi --------------
  
-    let result = Math.round(weight / (height * height));
+    let result = (weight / (height * height)).toFixed(1);
 
 
   //logic for the bmi record pushing------------
