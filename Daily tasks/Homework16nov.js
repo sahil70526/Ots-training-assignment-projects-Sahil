@@ -10,6 +10,7 @@ let promise = new Promise ((resolved,rejected)=>{
 console.log(promise);
 
 
+
 let rejectedPromise= new Promise((resolved,rejected)=>{
     rejected();
     console.log("promise rejected .");
@@ -26,7 +27,7 @@ Promise.resolve().then((p1)=>console.log("Promise 1"))
 console.log("Hello 2");
 setTimeout(() => {
     console.log("timeout 1");
-}, 5000);
+}, 500);
 
 setTimeout(() => {
     Promise.resolve().then((p1)=>console.log("Promise 2"));
