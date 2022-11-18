@@ -6,15 +6,15 @@
 function finalSum() {
     let obj = {};
     return function (x, y) {
-      if (obj[(x, y)]) {
-        console.log(`previously done on this argument ${x} ${y} is : ${obj[(x,y)]}`);
+      if (obj[x+''+y]) {
+        console.log(`previously done on this argument ${x} ${y} is : ${obj[x+''+y]}`);
         // console.log(obj);
-        return obj[(x, y)];
+        return obj[x+''+y];
         
       }
       console.log(`Sum of ${x} ${y} is:`);
       const result = x + y;
-      obj[(x, y)] = result;
+      obj[x+''+y] = result;
       console.log(result);
       // console.log(obj);
     }

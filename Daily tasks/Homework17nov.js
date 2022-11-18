@@ -69,7 +69,7 @@ function getData(neighbours) {
   const data = fetch(`https://restcountries.com/v2/name/${neighbours}`)
     .then((result) => {
       if (!result.ok) throw new Error("the country has no neighbours.");
-      result.json();
+     return result.json();
     })
     .then((data1) => {
       console.log(data1[1].borders);
@@ -77,4 +77,4 @@ function getData(neighbours) {
     .catch((err) => console.log(err));
 }
 
-console.log(getData("hjfdh"));
+console.log(getData("india"));
