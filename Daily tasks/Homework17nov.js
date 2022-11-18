@@ -77,4 +77,4 @@ function getData(neighbours) {
     .catch((err) => console.log(err));
 }
 
-console.log(getData("india"));
+console.log(getData("china"));
