@@ -83,3 +83,5 @@ console.log(result1);
 // console.log(check(firstOut));
 // const finalOut= secondOut.filter(check);
 // console.log(finalOut);
+
+
