@@ -24,3 +24,8 @@ function getData() {
 }
 
 console.log(getData());
+
+
+// link for defer and async.....
+// https://blog.webdevsimplified.com/2019-12/javascript-loading-attributes-explained/
+

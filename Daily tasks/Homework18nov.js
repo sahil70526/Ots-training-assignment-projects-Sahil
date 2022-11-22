@@ -37,6 +37,7 @@ for (let i = 0; i < arr.length; i++) {
     } else {
       result.push(current);
     }
+    
     return result;
   }
   flatArr(current);

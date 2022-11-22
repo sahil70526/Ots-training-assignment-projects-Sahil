@@ -50,9 +50,9 @@ function final() {
     if (cache[x + "" + y] || cache[y + "" + x]) {
       return `Already calculated multiplication of ${x},${y} is ${cache[x + "" + y]}`;
     }
-   let result = x * y;
+    let result = x * y;
     cache[x + "" + y] = result;
-    cache[y+''+x]=result;
+    cache[y + '' + x] = result;
     return `The multiplication of the numbers ${x},${y} is ${result}`;
   };
 }
@@ -69,7 +69,7 @@ function getData(neighbours) {
   const data = fetch(`https://restcountries.com/v2/name/${neighbours}`)
     .then((result) => {
       if (!result.ok) throw new Error("the country has no neighbours.");
-     return result.json();
+      return result.json();
     })
     .then((data1) => {
       console.log(data1[1].borders);
@@ -81,12 +81,39 @@ console.log(getData("china"));
 
 // ---------------------- 21 nov afternoon session task -----------------
 
-const uri='https://reqres.in/api/users';
+const uri = 'https://reqres.in/api/users';
 
-async function getData1(){6
-  const data2= await fetch(uri);
-  const result6= await data2.json();
+async function getData1() {
+  6
+  const data2 = await fetch(uri);
+  const result6 = await data2.json();
   console.log(result6);
 }
 getData1();
+
+
+// --------- flat arr with reduce function ------------------------------
+
+
+let arr = [[1, 2], [2, 4, [5, 6, [2, 4]]], 8, 9]
+
+let newArr = arr.reduce((acc, curr) => {
+
+  return acc.concat(curr)
+
+}, [])
+
+let NewArr = newArr.reduce((accu, curr) => {
+
+  return accu.concat(curr)
+
+}, [])
+
+let FinalArr = NewArr.reduce((accu, curr) => {
+
+  return accu.concat(curr)
+
+}, [])
+
+console.log(FinalArr)
 
