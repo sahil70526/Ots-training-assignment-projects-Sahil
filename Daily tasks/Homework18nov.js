@@ -61,27 +61,16 @@ let result1=[];
 console.log(result1);
 
 // ------------------- with the help of map and filter ------------------
-// const firstOut=a.map((cur)=>{
-//   return cur.name.toLowerCase();
-// });
-// const secondOut=b.map((cur)=>{
-//   return cur.name.toLowerCase();
-// });
 
-// // for(let i=0;i<firstOut.length;i++){
-// //   let checkNum=firstOut[i];
-// //   function check(checkNum){
-// //     return checkNum.toLowerCase();
-// //   }
-// // }
+let newObj = {};
+b.map((cur) => {
+  let value = cur.name.toLowerCase();
+  newObj[value] = cur.name.toLowerCase();
 
-// function check(firstOut){
-//   for(let i=0;i<firstOut.length;i++){
-//     return firstOut[i];
-//   }
-// }
-// console.log(check(firstOut));
-// const finalOut= secondOut.filter(check);
-// console.log(finalOut);
+});
 
-
+const filterName = a.filter((item) => {
+  let nameValue = item.name.toLowerCase();
+  return newObj[nameValue] ? item : null;
+});
+console.log(filterName);
