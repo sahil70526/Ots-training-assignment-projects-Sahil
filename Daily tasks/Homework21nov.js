@@ -12,7 +12,7 @@ function getData() {
           throw new Error("Please provide correct lgnitude and lattitude");
         const result = await data.json();
         console.log(
-          `You are in : ${result.city} in state :${result.localityInfo.administrative[1].name} from :${result.localityInfo.administrative[4].name}`
+          `You are in : ${result.city}\nIn state : ${result.localityInfo.administrative[1].name}\nFrom : ${result.localityInfo.administrative[4].name}\nActual Locality : ${result.locality}`
         );
       } catch (error) {
         console.log(error);
