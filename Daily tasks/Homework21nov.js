@@ -29,9 +29,3 @@ console.log(getData());
 // link for defer and async.....
 // https://blog.webdevsimplified.com/2019-12/javascript-loading-attributes-explained/
 
-
-// 23 nov tasks--------------stopwatch
-// Features -
-// It should run till 59 minutes 59 seconds
-// It should have 3 Buttons - Start, Stop & Reset
-// Stop Button should be enabled only if stopwatch is running

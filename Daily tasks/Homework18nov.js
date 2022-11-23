@@ -21,27 +21,16 @@ final();
 
 const arr = [[1, 2], [2, 4, [5, 6, [2, 4]]], 8, 9];
 let result = [];
-for (let i = 0; i < arr.length; i++) {
-  let current = arr[i];
-  function flatArr(current) {
-    if (isNaN(current)) {
-      for (let j = 0; j < current.length; j++) {
-        let newCurrent = current[j];
-        if (isNaN(newCurrent)) {
-          current = newCurrent;
-          return flatArr(current);
-        } else {
-          result.push(newCurrent);
-        }
-      }
-    } else {
-      result.push(current);
+const flatArr= (array)=>{
+  for(let i=0;i<array.length;i++){
+    if(isNaN(array[i])){
+      flatArr(array[i]);
+    }else{
+      result.push(array[i]);
     }
-    
-    return result;
   }
-  flatArr(current);
 }
+flatArr(arr);
 
 console.log(result);
 

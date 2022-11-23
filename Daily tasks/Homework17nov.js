@@ -92,28 +92,3 @@ async function getData1() {
 getData1();
 
 
-// --------- flat arr with reduce function ------------------------------
-
-
-let arr = [[1, 2], [2, 4, [5, 6, [2, 4]]], 8, 9]
-
-let newArr = arr.reduce((acc, curr) => {
-
-  return acc.concat(curr)
-
-}, [])
-
-let NewArr = newArr.reduce((accu, curr) => {
-
-  return accu.concat(curr)
-
-}, [])
-
-let FinalArr = NewArr.reduce((accu, curr) => {
-
-  return accu.concat(curr)
-
-}, [])
-
-console.log(FinalArr)
-
