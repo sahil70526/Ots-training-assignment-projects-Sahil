@@ -2,7 +2,7 @@ html {
     font-family: sans-serif;
   }
 #mainContainer{
-    background-color:#EEEEEE;
+    background-color:whitesmoke;
     display: flex ;
     flex-direction: column;
     justify-content: space-evenly;
@@ -17,7 +17,7 @@ html {
 }
 
 .btn{
-    background-color: #47B5FF;
+    background-color: #55c2da;
     border-radius: 5px;
     height: 40px;
     font-size: x-large;
@@ -32,5 +32,5 @@ html {
 }
 
 .txt{
-    font-size: x-large;  
+    font-size:medium;  
 }
