@@ -61,6 +61,9 @@ b.map((cur) => {
 
 const filterName = a.filter((item) => {
   let nameValue = item.name.toLowerCase();
-  return newObj[nameValue] ? item : null;
+  // return newObj[nameValue] ? item : null;
+  if(newObj[nameValue]){
+    return item;
+  }
 });
 console.log(filterName);
