@@ -17,14 +17,14 @@ startBtn.addEventListener('click',start);
 function start(){
   count=true;
   stopWatch();
-  document.getElementById("startbtn").innerHTML='Stop';
   startBtn.removeEventListener("click", start);
+  document.getElementById("startbtn").innerHTML='Stop';
   startBtn.addEventListener("click", Stop);
 }
 
 function Stop(){
   count=false;
-  document.getElementById("startbtn").innerHTML='Stop';
+  document.getElementById("startbtn").innerHTML='Start';
   startBtn.removeEventListener("click", Stop);
   startBtn.addEventListener("click", start);
 }
@@ -37,7 +37,8 @@ resetBtn.addEventListener("click", function () {
   document.getElementById("min").innerHTML = "00";
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("miliSec").innerHTML = "00";
-  document.getElementById("startbtn").innerHTML='Start'
+  document.getElementById("startbtn").innerHTML='Start';
+  startBtn.addEventListener('click',start);
 });
 
 function stopWatch() {
