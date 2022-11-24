@@ -1,35 +1,35 @@
-// 23 nov tasks--------------stopwatch
-// Features -
-// It should run till 59 minutes 59 seconds
-// It should have 3 Buttons - Start, Stop & Reset
-// Stop Button should be enabled only if stopwatch is running
-
 let startBtn = document.getElementById("startbtn");
 let resetBtn = document.getElementById("resetbtn");
-let count= true;
-
+let count = true;
 let minute = 0;
 let second = 0;
 let miliSecond = 0;
 
-startBtn.addEventListener('click',start);
+// ------------- Adding event listeners to the buttons ---------------------
+// ------------- Start button---------------------
 
-function start(){
-  count=true;
+startBtn.addEventListener('click', start);
+function start() {
+  count = true;
   stopWatch();
   startBtn.removeEventListener("click", start);
-  document.getElementById("startbtn").innerHTML='Stop';
+  document.getElementById("startbtn").innerHTML = 'Stop';
   startBtn.addEventListener("click", Stop);
 }
 
-function Stop(){
-  count=false;
-  document.getElementById("startbtn").innerHTML='Start';
+// --------------------stop button ------------------
+
+function Stop() {
+  count = false;
+  document.getElementById("startbtn").innerHTML = 'Start';
   startBtn.removeEventListener("click", Stop);
   startBtn.addEventListener("click", start);
 }
 
-resetBtn.addEventListener("click", function () {
+// ------------------reset button ---------------------
+
+resetBtn.addEventListener('click', reset);
+function reset() {
   count = false;
   minute = 0;
   second = 0;
@@ -37,9 +37,11 @@ resetBtn.addEventListener("click", function () {
   document.getElementById("min").innerHTML = "00";
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("miliSec").innerHTML = "00";
-  document.getElementById("startbtn").innerHTML='Start';
-  startBtn.addEventListener('click',start);
-});
+  document.getElementById("startbtn").innerHTML = 'Start';
+  startBtn.addEventListener('click', start);
+}
+
+// --------------------- Main logic for the stopwatch --------------------
 
 function stopWatch() {
   if (count) {
@@ -52,25 +54,29 @@ function stopWatch() {
       minute++;
       second = 0;
     }
+    if (minute == 60) {
+      //  ------------code for stop at 59 minutes and 59 second.---------------
+      reset();
+    }
     let minString = minute;
     let secString = second;
     let miliSecondString = miliSecond;
 
     if (minute < 10) {
-        minString = "0" + minString;
+      minString = "0" + minString;
     }
 
     if (second < 10) {
-        secString = "0" + secString;
+      secString = "0" + secString;
     }
 
     if (miliSecond < 10) {
-        miliSecondString = "0" + miliSecondString;
+      miliSecondString = "0" + miliSecondString;
     }
     document.getElementById("min").innerHTML = minString;
     document.getElementById("sec").innerHTML = secString;
     document.getElementById("miliSec").innerHTML = miliSecondString;
-   setTimeout(stopWatch, 10);
+    setTimeout(stopWatch, 10);
   }
 }
 
