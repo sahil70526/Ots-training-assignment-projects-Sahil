@@ -8,12 +8,12 @@ let miliSecond = 0;
 // ------------- Adding event listeners to the buttons ---------------------
 // ------------- Start button---------------------
 
-startBtn.addEventListener('click', start);
+startBtn.addEventListener("click", start);
 function start() {
   count = true;
   stopWatch();
   startBtn.removeEventListener("click", start);
-  document.getElementById("startbtn").innerHTML = 'Stop';
+  document.getElementById("startbtn").innerHTML = "Stop";
   startBtn.addEventListener("click", Stop);
 }
 
@@ -21,14 +21,14 @@ function start() {
 
 function Stop() {
   count = false;
-  document.getElementById("startbtn").innerHTML = 'Start';
+  document.getElementById("startbtn").innerHTML = "Start";
   startBtn.removeEventListener("click", Stop);
   startBtn.addEventListener("click", start);
 }
 
 // ------------------reset button ---------------------
 
-resetBtn.addEventListener('click', reset);
+resetBtn.addEventListener("click", reset);
 function reset() {
   count = false;
   minute = 0;
@@ -37,8 +37,8 @@ function reset() {
   document.getElementById("min").innerHTML = "00";
   document.getElementById("sec").innerHTML = "00";
   document.getElementById("miliSec").innerHTML = "00";
-  document.getElementById("startbtn").innerHTML = 'Start';
-  startBtn.addEventListener('click', start);
+  document.getElementById("startbtn").innerHTML = "Start";
+  startBtn.addEventListener("click", start);
 }
 
 // --------------------- Main logic for the stopwatch --------------------
@@ -80,4 +80,32 @@ function stopWatch() {
   }
 }
 
+// ----------- code for getting current time string--------------------------
 
+function getTime() {
+  const date = new Date();
+  let hours = date.getHours();
+  let toggle = true;
+  console.log(hours);
+  if (hours >= 12 && hours < 24) {
+    toggle = false;
+  }
+  if (!toggle) {
+    document.getElementById("Toggle").innerHTML = "PM";
+  }
+  if (hours == 0) {
+    hours = 12;
+  }
+  if (hours > 12) {
+    hours = hours - 12;
+  }
+
+  let seconds = date.getSeconds();
+  let minute = date.getMinutes();
+
+  document.getElementById("currentHours").innerHTML = hours;
+  document.getElementById("currentMin").innerHTML = minute;
+  document.getElementById("currentSec").innerHTML = seconds;
+  setTimeout(getTime, 1000);
+}
+getTime();
