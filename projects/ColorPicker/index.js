@@ -5,12 +5,15 @@ let num3 = 0;
 function change(e) {
   if (e.target.name == "first") {
     num1 = e.target.value;
+    document.getElementById('Red').innerHTML=num1;
   }
-  if (e.target.name == "second") {
+  else if (e.target.name == "second") {
     num2 = e.target.value;
+    document.getElementById('Green').innerHTML=num2;
   }
-  if (e.target.name == "third") {
+  else{
     num3 = e.target.value;
+    document.getElementById('Blue').innerHTML=num3;
   }
 
   document.getElementById(

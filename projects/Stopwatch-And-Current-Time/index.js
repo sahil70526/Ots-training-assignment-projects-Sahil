@@ -81,11 +81,10 @@ function stopWatch() {
 }
 
 // ----------- code for getting current time string--------------------------
-
+let toggle = true;
 function getTime() {
   const date = new Date();
   let hours = date.getHours();
-  let toggle = true;
   console.log(hours);
   if (hours >= 12 && hours < 24) {
     toggle = false;
