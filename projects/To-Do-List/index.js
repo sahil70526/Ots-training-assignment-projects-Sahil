@@ -1,38 +1,63 @@
-let addBtn= document.getElementById('add');
-let clearBtn= document.getElementById('clear');
-let persistBtn= document.getElementById('persist');
-let val= document.getElementById("toDodata");
-let ulData= document.getElementById("toDoItems")
-let result =[];
+let addBtn = document.getElementById('add');
+let clearBtn = document.getElementById('clear');
+let persistBtn = document.getElementById('persist');
+let val = document.getElementById("toDodata");
+let ulData = document.getElementById("toDoItems")
+let result = [];
 
-    addBtn.addEventListener('click',add);
-    function add(){
-        // ----code for adding
-        let item= val.value;
-        result.push(item);
-       if(item){
-        let list=document.createElement('li');
+addBtn.addEventListener('click', add);
+function add() {
+    // ----code for adding
+    let item = val.value;
+    item = item.trim();
+    if (item) {
+        let list = document.createElement('li');
+        let cross = document.createElement('span')
         list.innerHTML = item;
+        cross.innerText = '-';
+        cross.className = 'cross';
+        list.appendChild(cross)
         ulData.appendChild(list);
+        result.push(item);
+
         // ------------ code for removing done items ---------------------
-    
-        list.addEventListener('click',()=>{
+
+        cross.addEventListener('click', () => {
+            sessionStorage.setItem('listItem', JSON.stringify(result))
             list.remove();
         });
     }
-    val.value=' '
-       }
+    val.value = ' '
+}
 
-        // -------------- code for removing all items-------------------
-     
-        clearBtn.addEventListener('click',()=>{
-            ulData.innerHTML=' ';
-        });
+// -------------- code for removing all items-------------------
 
-persistBtn.addEventListener('click',persist);
+clearBtn.addEventListener('click', () => {
+    sessionStorage.setItem('listItem', JSON.stringify(result))
+    ulData.innerHTML = ' ';
+});
 
-console.log(result);
+persistBtn.addEventListener('click', persist);
 
-function persist(){
-// -----------code for persist storage---------
+
+function persist() {
+    // -----------code for persist storage---------
+
+
+    let itempr = JSON.parse(sessionStorage.getItem('listItem'));
+    if (itempr) {
+        for (let i = 0; i < itempr.length; i++) {
+            let listpr = document.createElement('li');
+            let crosspr = document.createElement('span')
+            listpr.innerHTML = itempr[i];
+            crosspr.innerText = '-';
+            crosspr.className = 'cross';
+            listpr.appendChild(crosspr)
+            ulData.appendChild(listpr);
+            crosspr.addEventListener('click', () => {
+                listpr.remove();
+            });
+        }
+    }
+
 }
