@@ -13,7 +13,7 @@ function add() {
     if (item) {
         let list = document.createElement('li');
         let cross = document.createElement('span')
-        list.innerHTML = item;
+        list.innerText= item;
         cross.innerText = '-';
         cross.className = 'cross';
         list.appendChild(cross)
@@ -49,7 +49,7 @@ function persist() {
         for (let i = 0; i < itempr.length; i++) {
             let listpr = document.createElement('li');
             let crosspr = document.createElement('span')
-            listpr.innerHTML = itempr[i];
+            listpr.innerText = itempr[i];
             crosspr.innerText = '-';
             crosspr.className = 'cross';
             listpr.appendChild(crosspr)
@@ -59,5 +59,8 @@ function persist() {
             });
         }
     }
-
+   
+    sessionStorage.clear();
 }
+
+sessionStorage.clear();
