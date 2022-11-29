@@ -13,17 +13,17 @@ function add() {
     if (item) {
         let list = document.createElement('li');
         let cross = document.createElement('span')
-        list.innerHTML = item;
+        list.innerText = item;
         cross.innerText = '-';
         cross.className = 'cross';
         list.appendChild(cross)
         ulData.appendChild(list);
         result.push(item);
+        sessionStorage.setItem('listItem', JSON.stringify(result))
 
         // ------------ code for removing done items ---------------------
 
         cross.addEventListener('click', () => {
-            sessionStorage.setItem('listItem', JSON.stringify(result))
             list.remove();
         });
     }
@@ -33,7 +33,6 @@ function add() {
 // -------------- code for removing all items-------------------
 
 clearBtn.addEventListener('click', () => {
-    sessionStorage.setItem('listItem', JSON.stringify(result))
     ulData.innerHTML = ' ';
 });
 
@@ -49,7 +48,7 @@ function persist() {
         for (let i = 0; i < itempr.length; i++) {
             let listpr = document.createElement('li');
             let crosspr = document.createElement('span')
-            listpr.innerHTML = itempr[i];
+            listpr.innerText = itempr[i];
             crosspr.innerText = '-';
             crosspr.className = 'cross';
             listpr.appendChild(crosspr)
@@ -60,4 +59,31 @@ function persist() {
         }
     }
 
+    sessionStorage.clear();
 }
+
+window.onload = () => {
+    // -----------code for onload ---------
+
+
+    let itemwn = JSON.parse(sessionStorage.getItem('listItem'));
+    result.push(...itemwn)
+    console.log(itemwn);
+    if (itemwn) {
+        for (let i = 0; i < itemwn.length; i++) {
+            let listwn = document.createElement('li');
+            let crosswn = document.createElement('span')
+            listwn.innerText = itemwn[i];
+            crosswn.innerText = '-';
+            crosswn.className = 'cross';
+            listwn.appendChild(crosswn)
+            ulData.appendChild(listwn);
+            crosswn.addEventListener('click', () => {
+                listwn.remove();
+            });
+        }
+    }
+    sessionStorage.clear();
+}
+
+

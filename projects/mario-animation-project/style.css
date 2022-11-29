@@ -1,0 +1,142 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+
+.mario{
+  position: absolute;
+  top: -40px;
+}
+
+/*// KEYFRAMES //*/
+
+@keyframes drive {
+  0%{
+  transform: translate(0px);
+  }
+  50%{
+    transform: translate(300px,-100px) rotate(360deg);
+  }
+  75%{
+    transform: translate(600px,0px) ;
+  }
+  100%{
+    transform: translate(1200px)
+  }
+  
+}
+
+.mario{
+  animation: drive 5s infinite;
+}
+
+/* @keyframes mymove {
+  0%   {top: 0px; background: red; width: 100px;}
+  100% {top: 200px; background: yellow; width: 300px;}
+} */
+
+
+@keyframes movecloud{
+  0%{
+    transform: translateX(200px,-200px) scale(0.4); 
+  }
+  50%{
+    transform: translateX(1000px) scale(0.6);
+  }
+  100%{
+      transform: translateX(1200px) scale(0.8) ;
+  
+  }
+}
+
+.cloud{
+  animation: movecloud 5s infinite;
+}
+
+@keyframes manpipulatecloud1{
+  0%{
+    transform:rotate(90deg) scale(0.1);   
+  }
+  50%{
+    transform:rotate(180deg) scale(0.4);
+  }
+  100%{
+    transform:rotate(360deg) scale(0.4); 
+  
+  }
+}
+.cloud1{
+  animation: manpipulatecloud1 5s infinite;
+}
+@keyframes manpipulatecloud2{
+  0%{
+    transform:rotate(360deg) scale(0.6);   
+  }
+  50%{
+    transform:rotate(180deg) scale(0.4);
+  }
+  100%{
+    transform:rotate(90deg) scale(0.2); 
+  
+  }
+}
+.cloud2{
+  animation: manpipulatecloud2 5s infinite;
+}
+
+
+@keyframes moveroad{
+  0%{
+    transform: translate(0px) 
+  }
+  50%{
+    transform: translate(50px);
+  }
+  100%{
+      transform: translate(150px);
+  
+  }
+}
+
+/* .road{
+  animation: moveroad 50s infinite;
+} */
+

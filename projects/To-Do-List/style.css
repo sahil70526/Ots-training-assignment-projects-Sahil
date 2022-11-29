@@ -55,11 +55,12 @@
 }
 .cross {
     margin:100%;
-    width: 60px;
     color:white;
+    /* width: 100px; */
+    height: 0px;
     background-color: red;
-    font-size: xx-large;
-    border-radius: 50%;
+    /* font-size: xx-large; */
+    /* border-radius: 30%; */
 }
 .listh {
     display: flex;
