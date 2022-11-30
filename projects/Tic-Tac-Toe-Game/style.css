@@ -23,8 +23,19 @@
 
 .inputbox{
     width: 30%;
+    height: 30%;
     /* border-radius: 12px; */
     text-align: center;
     font-size: x-large;
    
+}
+
+#restart{
+    position: relative;
+    width: 6%;
+    height: 35px;
+    top: 60px;
+    left: 620px;
+    background-color: rgb(102, 196, 233);
+    border-radius: 5px;
 }
