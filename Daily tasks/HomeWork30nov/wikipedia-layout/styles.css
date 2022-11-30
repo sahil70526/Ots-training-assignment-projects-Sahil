@@ -1,0 +1,39 @@
+
+
+.header{
+    grid-area: header;
+    height: 10vh;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.middle{
+    grid-area: middle;
+    height: 78vh;
+    text-align: center;
+    background-color: rgb(146, 106, 158);
+}
+
+.footer{
+    grid-area: footer;
+    height: 10vh;
+    text-align: center;
+    background-color: rgb(222, 240, 158);
+}
+
+
+
+.side{
+    display: grid;
+    grid-template-columns: 550px;
+    height: 10vh;
+    text-align: center;
+    background-color: rgb(222, 240, 158);
+}
+
+#id{
+    display: grid;
+    grid-template-areas: 'side header header header header header'
+                         'side middle1 middle1 middle1 middle1 middle1'
+                         'side footer footer footer footer footer';
+}
