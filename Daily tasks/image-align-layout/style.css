@@ -1,0 +1,10 @@
+.main{
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    background-color: aquamarine;
+    height:260px ;
+    width:450px;
+}
