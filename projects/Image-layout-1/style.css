@@ -1,0 +1,30 @@
+*{
+    margin: 0px;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.item{
+    margin: 2px;
+    background-color: beige;
+    height: 200px;
+    width: 332px;
+    border: 0px ;
+    border-radius: 8px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+.item:hover{
+ border: 1px solid rgb(77, 70, 70);
+ opacity: 1;
+}
+
+.image{
+   height: 200px;
+   width: 332px;
+   border-radius: 8px;
+}

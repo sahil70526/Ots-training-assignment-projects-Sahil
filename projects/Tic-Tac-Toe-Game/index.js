@@ -32,7 +32,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f1 == 'X') && (f4 == 'X') && (f7 == 'X')) {
         document.getElementById('print').innerHTML = "Player X won";
@@ -42,8 +45,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f7 == 'X') && (f8 == 'X') && (f9 == 'X')) {
         document.getElementById('print').innerHTML = "Player X won";
@@ -53,7 +58,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f4").disabled = true;
         document.getElementById("f5").disabled = true;
         document.getElementById("f6").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f3 == 'X') && (f6 == 'X') && (f9 == 'X')) {
         document.getElementById('print')
@@ -64,7 +72,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f5").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f1 == 'X') && (f5 == 'X') && (f9 == 'X')) {
         document.getElementById('print')
@@ -75,7 +86,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f3 == 'X') && (f5 == 'X') && (f7 == 'X')) {
         document.getElementById('print')
@@ -86,7 +100,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f2 == 'X') && (f5 == 'X') && (f8 == 'X')) {
         document.getElementById('print')
@@ -97,7 +114,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
     else if ((f4 == 'X') && (f5 == 'X') && (f6 == 'X')) {
         document.getElementById('print')
@@ -108,7 +128,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player X won');
+        setTimeout(() => {
+            window.alert('Player X won');
+            location.reload();
+        }, 500);
     }
 
     // Checking of Player X finish
@@ -123,7 +146,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f1 == 'O') && (f4 == 'O') && (f7 == 'O')) {
         document.getElementById('print')
@@ -134,7 +160,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f7 == 'O') && (f8 == 'O') && (f9 == 'O')) {
         document.getElementById('print')
@@ -145,7 +174,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f4").disabled = true;
         document.getElementById("f5").disabled = true;
         document.getElementById("f6").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f3 == 'O') && (f6 == 'O') && (f9 == 'O')) {
         document.getElementById('print')
@@ -156,7 +188,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f5").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f1 == 'O') && (f5 == 'O') && (f9 == 'O')) {
         document.getElementById('print')
@@ -167,7 +202,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f3 == 'O') && (f5 == 'O') && (f7 == 'O')) {
         document.getElementById('print')
@@ -178,7 +216,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
     else if ((f2 == 'O') && (f5 == 'O') && (f8 == 'O')) {
         document.getElementById('print')
@@ -189,7 +230,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f6").disabled = true;
         document.getElementById("f7").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player O won');  
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);  
     }
     else if ((f4 == 'O') && (f5 == 'O') && (f6 == 'O')) {
         document.getElementById('print')
@@ -200,7 +244,10 @@ data.addEventListener('click', (e) => {
         document.getElementById("f7").disabled = true;
         document.getElementById("f8").disabled = true;
         document.getElementById("f9").disabled = true;
-        window.alert('Player O won');
+        setTimeout(() => {
+            window.alert('Player O won');
+            location.reload();
+        }, 500);
     }
 
     // Checking of Player 0 finish
@@ -213,7 +260,9 @@ data.addEventListener('click', (e) => {
             f8 == 'O') && (f9 == 'X' || f9 == 'O')) {
         document.getElementById('print')
             .innerHTML = "Match Tie";
-        window.alert('Match Tie');
+        setTimeout(() => {
+            window.alert('Match Tie');
+        }, 500);
         location.reload();
     } else {
         if (count % 2) {

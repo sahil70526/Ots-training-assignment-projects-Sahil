@@ -20,7 +20,7 @@
     grid-template-columns: 1fr 1fr;
     grid-area: middle1;
     height: 100vh;
-    text-align: center;
+    /* text-align: center; */
     background-color: whitesmoke;
     /* border:1px solid black; */
 }
@@ -39,6 +39,10 @@
     text-align: center;
     background-color: whitesmoke;
 }
-.item{
+.item1{
+    text-align: center;
+    border:1px solid rgb(240, 174, 174);
+}
+.item2{
     border:1px solid rgb(240, 174, 174);
 }
