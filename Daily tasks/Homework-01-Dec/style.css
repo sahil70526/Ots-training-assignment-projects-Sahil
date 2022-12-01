@@ -1,0 +1,12 @@
+.main{
+    height: auto;
+    width: 40vw;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.main:hover{
+    border: 2px solid rgb(115, 129, 129);
+    border-radius: 8px;
+}
