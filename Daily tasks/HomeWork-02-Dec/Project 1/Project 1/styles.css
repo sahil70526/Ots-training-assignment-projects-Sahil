@@ -1,0 +1,22 @@
+#testimonials {
+  text-align: center;
+  background-color: #ff7b54;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+.test-img {
+  width: 20%;
+  border-radius: 100%;
+  margin: 20px;
+}
+.thead {
+  color: #fff;
+}
+
+.image {
+  object-fit: circle;
+  height: 180px;
+  width: 180px;
+}
