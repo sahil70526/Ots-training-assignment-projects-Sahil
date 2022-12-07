@@ -14,35 +14,18 @@
 }
 
 .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-}
-.main {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
   color: #61dafb;
-}
-.search{
-  height: 40px;
-  width: 300px;
-  text-align: center;
-  font-size: larger;
-}
-
-.btn{
-  height: 45px;
-  width:100px; 
-  margin: 10px;
-  font-size: larger;
 }
 
 @keyframes App-logo-spin {
