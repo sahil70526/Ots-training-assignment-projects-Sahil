@@ -3,15 +3,15 @@ import React, { Component } from 'react'
 export class Lificycle extends Component {
     constructor() {
         super();
-        this.state = { counter: 0, color: 'red' }
-    }
-
-    clicked = () => {
-        this.setState({ counter: this.state.counter + 1 })
+        this.state = { counter:null, color:null}
     }
     componentDidMount() {
-         this.setState({ color: "yellow" })     
+        this.setState({counter:0,color:"red"})
     }
+    clicked = () => {
+        this.setState({ counter: this.state.counter + 1 ,color:'green'})
+    }
+    
     render() {
         return (
             <div>
