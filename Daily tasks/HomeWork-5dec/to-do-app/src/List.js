@@ -1,13 +1,13 @@
-import React from 'react'
-
-export default function List(props) {
+export default function List({arr,details}) {
   return (
-    <div>
-        <ul>
-                {
-                    props.arr.map((i) => <li>{i}</li>)
-                }
-            </ul>
+    <div style={{margin:'10px'}}>
+      <h2>Food Names.... </h2>
+      <ul>
+        {
+          arr.map((i) => <li key={i}
+          onClick={()=>{details(i)}}>{i.foodName}</li>)
+        }
+      </ul>
     </div>
   )
 }
