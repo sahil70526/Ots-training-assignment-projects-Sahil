@@ -1,8 +1,9 @@
 import React from 'react'
 import Form from './Form'
+// import './App.css';
 function App() {
   return (
-    <div>
+    <div className='App-header'>
       <Form />
     </div>
   )
