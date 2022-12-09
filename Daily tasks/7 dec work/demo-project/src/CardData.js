@@ -19,6 +19,7 @@ const CardData = () => {
                         <Card.Description>
                             {curent.description}
                         </Card.Description>
+                        <div style={{textAlign:'left',margin:'30px',fontSize:'larger',fontWeight:'bold'}}>Price : {curent.price}</div>
                     </Card.Content>
                     <Card.Content extra>
                         <a>
@@ -36,3 +37,4 @@ const CardData = () => {
 }
 
 export default CardData;
+
