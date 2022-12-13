@@ -5,9 +5,8 @@ function Description({ arr1 }) {
     <div
       style={{
         margin: "10px",
-        border: "0.5px solid #F8FFDB",
-        width: "400px",
-        height: "400px",
+        border: "0.5px solid #F3CCFF",
+        height: "605px",
         borderRadius: "10px",
         fontSize: "larger",
         padding:'20px'
@@ -15,7 +14,7 @@ function Description({ arr1 }) {
     >
       <h2 style={{ textAlign: "center" }}>The description of the food....</h2>
       <div>Food-Name :- {arr1.foodName}</div>
-      <div> Chef-Name :- {arr1.chief}</div>
+      <div> Chef-Name :- {arr1.chef}</div>
       <div>Description :- {arr1.description}</div>
     </div>
   );

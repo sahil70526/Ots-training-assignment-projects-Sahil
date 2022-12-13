@@ -1,17 +1,25 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 
-function InputForm({ parentBag }) {
-  const inputref1 = useRef();
-  const inputref2 = useRef();
-  const inputref3 = useRef();
+function InputForm({ parentBag,updateItem }) {
+  const [input, setInput] = useState({foodName:null,chef:null,description:null});
+  // const[itemUpdate,setItemUpdate]=useState(null);
+  useEffect(()=>{
+  setInput({foodName:updateItem[0].foodName})
+  },[updateItem]);
+
+  // useEffect(()=>{
+  //  setInput({foodName:itemUpdate.foodName})
+  // },[itemUpdate]);
+
+  function addData(e) {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  }
   return (
     <div
       style={{
-        width: "400px",
         marginTop: "10px",
-        border: "0.5px solid #F8FFDB",
-        height: "230px",
+        border: "0.5px solid #F3CCFF",
         borderRadius: "10px",
         fontSize: "larger",
         padding: "10px",
@@ -23,39 +31,35 @@ function InputForm({ parentBag }) {
           <input
             className="search"
             type="text"
+            value={input.foodName}
+            name="foodName"
             placeholder="Enter Food name"
-            ref={inputref1}
+            onChange={addData}
           />
         </Form.Field>
         <Form.Field>
           <input
             className="search"
+            name="chef"
+            value={input.chef}
             type="text"
             placeholder="Enter Chefs name"
-            ref={inputref2}
+            onChange={addData}
           />
         </Form.Field>
         <Form.Field>
-          <input
-            className="search"
-            type="text"
-            placeholder="Enter description of your recipe"
-            ref={inputref3}
+          <textarea
+            placeholder="Enter description of your recipy"
+            name="description"
+            value={input.description}
+            onChange={addData}
           />
-          {/* <TextArea  placeholder='Enter description of your recipy' ref={inputref3}/> */}
         </Form.Field>
         <Button
           className="btn"
           onClick={() => {
-            const detailsOfFood = {
-              foodName: inputref1.current.value,
-              chief: inputref2.current.value,
-              description: inputref3.current.value,
-            };
-            parentBag(detailsOfFood);
-            inputref1.current.value = "";
-            inputref2.current.value = "";
-            inputref3.current.value = "";
+            parentBag(input);
+            setInput({foodName:'',chef:'',description:''})
           }}
         >
           Add
