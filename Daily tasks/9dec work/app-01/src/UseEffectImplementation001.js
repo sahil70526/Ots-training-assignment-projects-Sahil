@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PersonComponent from "./PersonComponent";
 import personDetails from "./PersonDetails";
+import { Dimmer, Loader } from 'semantic-ui-react'
 
 const onlyBoysAllowed = personDetails.filter((currentIteration) => {
   if (currentIteration.gender == "female") {
@@ -27,15 +28,28 @@ function UseEffectImplementation001() {
       setPersonDetailsData(personDetails);
     } else {
       if (isBoysAllowed) {
+        setIsLoading(false);
+       setTimeout(() => {
+        setIsLoading(true);
         setPersonDetailsData(onlyBoysAllowed);
+       },1000);
+      
       } else if (isGirlsAllowed) {
-        setPersonDetailsData(onlyGirlsAllowed);
+        setIsLoading(false);
+        setTimeout(() => {
+         setIsLoading(true);
+         setPersonDetailsData(onlyGirlsAllowed);
+        },1000);
+  
       } else {
-        setPersonDetailsData([]);
-        
+        setIsLoading(false);
+        setTimeout(() => {
+         setIsLoading(true);
+         setPersonDetailsData([]);
+        },1000);
+     
       }
     }
-    setIsLoading(false);
   }, [isGirlsAllowed, isBoysAllowed]);
 
   return (
@@ -56,14 +70,19 @@ function UseEffectImplementation001() {
       <div>
         <button
           style={{ margin: "1rem" }}
-          onClick={() => setIsGirlsAllowed(false)}
+          onClick={() => {
+            setIsGirlsAllowed(false)
+
+          }}
           disabled={!isGirlsAllowed}
         >
           Remove Girls
         </button>
         <button
           style={{ margin: "1rem" }}
-          onClick={() => setIsBoysAllowed(false)}
+          onClick={() => {
+            setIsBoysAllowed(false)
+          }}
           disabled={!isBoysAllowed}
         >
           Remove Boys
@@ -72,22 +91,31 @@ function UseEffectImplementation001() {
       <div>
         <button
           style={{ margin: "1rem" }}
-          onClick={() => setIsGirlsAllowed(true)}
+          onClick={() => {
+            setIsGirlsAllowed(true)
+
+          }}
           disabled={isGirlsAllowed}
         >
           Add Girls
         </button>
         <button
           style={{ margin: "1rem" }}
-          onClick={() => setIsBoysAllowed(true)}
+          onClick={() => {
+            setIsBoysAllowed(true)
+
+          }}
           disabled={isBoysAllowed}
         >
           Add Boys
         </button>
       </div>
-      {isLoading && <div>Loading...</div>}
+      {!isLoading && <Dimmer active>
+        <Loader />
+      </Dimmer>}
     </div>
   );
 }
 
 export default UseEffectImplementation001;
+

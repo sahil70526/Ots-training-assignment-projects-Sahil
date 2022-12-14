@@ -1,4 +1,7 @@
-export default function List({ arr, details }) {
+import { useState } from "react";
+
+export default function List({ arr, details,deleteData}) {
+  const [clicked, setClicked] = useState(true);
   return (
     <div
       style={{
@@ -7,19 +10,22 @@ export default function List({ arr, details }) {
         height: "250px",
         fontSize: "larger",
         borderRadius: "10px",
-        color:'green'
+        color: 'green'
       }}
     >
-      <h2 style={{ textAlign: "center" }}>Food Names.... <span></span></h2>
+      <h2 style={{ textAlign: "center" }}>Food Names.... </h2>
       <ul>
-        {arr.map((i) => (
+        {arr.map((item,index) => (
           <li
             key={i}
             onClick={() => {
-              details(i);
+              setClicked(false)
+              details(i, clicked);
             }}
           >
             {i.foodName}
+            <span><button onClick={()=>{  setClicked(false)
+              details(i, clicked);}}>Update</button><button onClick={()=>{deleteData(i.id)}}>Delete</button></span>
           </li>
         ))}
       </ul>

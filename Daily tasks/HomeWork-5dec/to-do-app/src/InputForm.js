@@ -1,10 +1,14 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
+import { v4 as uuid } from 'uuid';
 
-function InputForm({ parentBag }) {
-  const inputref1 = useRef();
-  const inputref2 = useRef();
-  const inputref3 = useRef();
+function InputForm({ parentBag,updateContent}) {
+  console.log(updateContent.foodName);
+  const [input, setInput] = useState({ foodName: "", chef: "", description: "", id: null });
+  const unique_id = uuid();
+  function change(e) {
+    setInput({ ...input, [e.target.name]: e.target.value })
+  }
   return (
     <div
       style={{
@@ -21,37 +25,48 @@ function InputForm({ parentBag }) {
           <input
             className="search"
             type="text"
+            value={input.foodName}
+            name="foodName"
             placeholder="Enter Food name"
-            ref={inputref1}
+            onChange={change}
           />
         </Form.Field>
         <Form.Field>
           <input
             className="search"
             type="text"
+            value={input.chef}
+            name="chef"
             placeholder="Enter Chefs name"
-            ref={inputref2}
+            onChange={change}
           />
         </Form.Field>
         <Form.Field>
-          <textarea  placeholder='Enter description of your recipy' ref={inputref3}/>
+          <textarea name="description"
+            value={input.description}
+            placeholder='Enter description of your recipy'
+            onChange={change} />
         </Form.Field>
         <Button
-          className="btn"
-          onClick={() => {
-            const detailsOfFood = {
-              foodName: inputref1.current.value,
-              chef: inputref2.current.value,
-              description: inputref3.current.value,
-            };
-            parentBag(detailsOfFood);
-            inputref1.current.value = "";
-            inputref2.current.value = "";
-            inputref3.current.value = "";
-          }}
-        >
-          Add
-        </Button>
+              className="btn"
+              onClick={() =>
+                 {setInput(input.id=unique_id)
+                  parentBag(input);
+                  setInput({foodName:"",chef:"",description:"",id:''})
+              }}
+            >
+              Add
+            </Button>
+            <Button
+              className="btn"
+              onClick={() =>
+                 { setInput({})
+                  parentBag(input);
+                 
+              }}
+            >
+              update
+            </Button>
       </Form>
     </div>
   );
