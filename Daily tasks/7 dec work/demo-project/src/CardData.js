@@ -8,6 +8,7 @@ const CardData = () => {
     return (
             <Card.Group itemsPerRow={4}>
             {data.map((curent) => {
+                
                 return <Card>
                     <Image src={curent.image} wrapped ui={false} />
                     <IconChange/>

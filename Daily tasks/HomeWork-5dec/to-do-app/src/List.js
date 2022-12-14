@@ -23,7 +23,7 @@ export default function List({ arr, details ,deleteIndex,updateteIndex}) {
             }}
           >
             {item.foodName}
-            <span><button onClick={()=>updateteIndex(index)}>Edit</button><button onClick={()=>deleteIndex(index)}>delete</button></span>
+            <span style={{margin:'100px'}}><button style={{margin:'10px'}} onClick={()=>updateteIndex(index)}>Edit</button><button onClick={()=>deleteIndex(index)}>delete</button></span>
           </li>
         ))}
       </ul>
