@@ -10,7 +10,7 @@ function App() {
   const [renderPokemon, setRenderPokemon] = useState([]);
   const [paginatedPokemons, setPaginatedPokemons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [call,setCall]=useState(false);
+  // const [call,setCall]=useState(false);
 
   const filterPokemon = (searchValue) => {
     const newPokemons = paginatedPokemons.filter((pokemon) =>
@@ -18,6 +18,15 @@ function App() {
     );
     setRenderPokemon(newPokemons);
   };
+
+  let heightValue=(value)=>{
+    console.log(value);
+
+  }
+
+  let filterByHeight=(scale)=>{
+console.log(scale);
+  }
 
   //calling api
   
@@ -42,24 +51,24 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (currentPage === 1 && !call) {
+    if (currentPage === 1 ) {
       setPaginatedPokemons(pokemons.slice(0, 4));
       setRenderPokemon(pokemons.slice(0, 4));
-    } else if (currentPage === 2 && !call) {
+    } else if (currentPage === 2 ) {
       setPaginatedPokemons(pokemons.slice(4, 8));
       setRenderPokemon(pokemons.slice(4, 8));
-    } else if (currentPage === 3 && !call) {
+    } else if (currentPage === 3 ) {
       setPaginatedPokemons(pokemons.slice(8, 12));
       setRenderPokemon(pokemons.slice(8, 12));
-    } else if (currentPage === 4 && !call) {
+    } else if (currentPage === 4 ) {
       setPaginatedPokemons(pokemons.slice(12, 16));
       setRenderPokemon(pokemons.slice(12, 16));
-    } else if (currentPage === 5 && !call) {
+    } else if (currentPage === 5 ) {
       setPaginatedPokemons(pokemons.slice(16, 20));
       setRenderPokemon(pokemons.slice(16, 20));
     }
-    setCall(true)
-  }, [currentPage,call]);
+    // setCall(true)
+  }, [currentPage]);
 
   return (
     <div
@@ -70,8 +79,8 @@ function App() {
       }}
     >
       <div>
-        <SearchForm filterPokemon={filterPokemon} />
-        <List pokemons={renderPokemon} />
+        <SearchForm filterPokemon={filterPokemon} filterByHeight={filterByHeight} />
+        <List pokemons={renderPokemon} heightValue={heightValue} />
       </div>
       <div style={{ textAlign: "center", margin: "20px" }}>
       <Pagination
@@ -84,7 +93,7 @@ function App() {
           totalPages={5}
           onPageChange={(e, value) => {
             setCurrentPage(value.activePage);
-            setCall(false)
+            // setCall(false)
           }}
 
         />

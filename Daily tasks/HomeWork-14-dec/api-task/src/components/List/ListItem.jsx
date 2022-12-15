@@ -2,15 +2,18 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Card, Image } from 'semantic-ui-react'
 
-const ListItem = ({pokemon}) => {
+const ListItem = ({pokemon,heightValue}) => {
 
     const [details, setDetails] = useState(null)
+    const [sentHeight,setSentHeight]= useState(null)
 
  const getPokemonDetail = async ()=> {
     try {
         const {data} = await axios.get(pokemon.url)
         const {weight, height,sprites} = data
         setDetails({weight, height,sprites})
+        setSentHeight(height)
+        heightValue(sentHeight)
     } catch (error) {
         console.log(error)
     }

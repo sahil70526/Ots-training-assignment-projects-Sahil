@@ -1,60 +1,53 @@
 import React, { useState } from "react";
+import { Dropdown, Input, Button, Form } from 'semantic-ui-react'
 
-function SearchForm  ({ filterPokemon }){
-  const [value,setValue]=useState('')
+function SearchForm({ filterPokemon ,filterByHeight}) {
+  const [value, setValue] = useState('')
+  const [btnStyle, setBtnStyle] = useState(false);
+  const [findHeight, setFindHeight] = useState(null)
+
+  const options = [
+    { key: 1, text: 'Large', value: 'Large' },
+    { key: 2, text: 'Medium', value: 'Medium' },
+    { key: 3, text: 'Small', value: 'Small' },
+  ]
+
+
+  function getFormData(e) {
+    e.preventDefault();
+  }
 
   const search = (e) => {
-    // let value = e.target.value;
-    // filterPokemon(value)
-    
     setValue(e.target.value)
+
   };
 
-  const sendData=()=>{
+  const sendData = () => {
     filterPokemon(value)
+    setValue('');
+    setBtnStyle(true);
   }
 
   return (
-    <div  
+    <div
       style={{
-       textAlign:'center',
-       margin:'20px',
-        height: "60px",
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: '10px'
+
       }}
     >
-      <form>
-        <input
-          style={{ height: "45px", width: "200px", margin: "20px" ,textAlign:'center',fontSize:'larger'}}
-          name="pokemon"
-          value={value}
-          onChange={search}
-          placeholder="search-in-page"
-        />
-        <button
-          style={{
-            color: "white",
-            height: "45px",
-            margin: "2px",
-            borderRadius: "8px",
-            width: "90px",
-            backgroundColor: "blue",
-          }}
-          onClick={sendData}
-        >
-          Search
-        </button>
-        <button
-          style={{
-            color: "white",
-            height: "45px",
-            borderRadius: "8px",
-            width: "90px",
-            backgroundColor: "cyan",
-          }}
-        >
-          Reset
-        </button>
-      </form>
+      <Form onSubmit={getFormData}>
+        <Input focus placeholder="search-in-page" onChange={search} value={value} name="pokemon" />
+        <Button content='Search' primary onClick={sendData} disabled={btnStyle} style={{ marginLeft: '5px' }} />
+        <Button content='Reset' secondary onClick={() => window.location.reload()} />
+
+      </Form>
+      <Dropdown options={options} selection placeholder="Filter-by-height"
+       onChange={(e, data) => { setFindHeight(data.value)
+       filterByHeight(findHeight) }} />
     </div>
   );
 };
