@@ -24,9 +24,9 @@ function App() {
 
   }
 
-  let filterByHeight=(scale)=>{
-console.log(scale);
-  }
+  // let filterByHeight=(scale)=>{
+  //   console.log(scale);
+  // }
 
   //calling api
   
@@ -70,6 +70,10 @@ console.log(scale);
     // setCall(true)
   }, [currentPage]);
 
+  let calHeight=(height)=>{
+console.log(height);
+  }
+
   return (
     <div
       style={{
@@ -79,8 +83,12 @@ console.log(scale);
       }}
     >
       <div>
-        <SearchForm filterPokemon={filterPokemon} filterByHeight={filterByHeight} />
-        <List pokemons={renderPokemon} heightValue={heightValue} />
+        <SearchForm filterPokemon={filterPokemon} 
+        // filterByHeight={filterByHeight} 
+        />
+        <List pokemons={renderPokemon} 
+        calHeight={calHeight} 
+        />
       </div>
       <div style={{ textAlign: "center", margin: "20px" }}>
       <Pagination

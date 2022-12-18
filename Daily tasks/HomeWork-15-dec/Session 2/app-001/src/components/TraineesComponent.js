@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Header, Input, Button, Dropdown, Form } from "semantic-ui-react";
 import TraineesList from "./TraineesList";
+import mockTraineesData from "./MockTraineesData";
 
 const TraineesComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,110 +9,10 @@ const TraineesComponent = () => {
   const [searchedTraineesList, setSearchedTraineesList] = useState([]);
   const [filter, setFilter] = useState("");
   const [toUpdate,setToUpdate]=useState(false)
+  const [update,setUpdate]=useState({firstName:'',lastName:'',email:'',gender:''});
+  const [toIndex,setToIndex]=useState(null);
 
-  const mockTraineesData = [
-    {
-      firstName: "Rahul",
-      lastName: "Rauniyar",
-      email: "rahul@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Saurabh",
-      lastName: "Singh",
-      email: "saurabh@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Mohd.",
-      lastName: "Ehtesham",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Arun",
-      lastName: "Kumar",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Rahul",
-      lastName: "Rauniyar",
-      email: "rahul@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Saurabh",
-      lastName: "Singh",
-      email: "saurabh@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Mohd.",
-      lastName: "Ehtesham",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Arun",
-      lastName: "Kumar",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Rahul",
-      lastName: "Rauniyar",
-      email: "rahul@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Saurabh",
-      lastName: "Singh",
-      email: "saurabh@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Mohd.",
-      lastName: "Ehtesham",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Arun",
-      lastName: "Kumar",
-      email: "ehtesham@otssolutions.com",
-      gender: "Male",
-    },
-    {
-      firstName: "Shikha",
-      lastName: "Singh",
-      email: "singh.shikha14300@gmail.com",
-      gender: "Female",
-    }, {
-      firstName: "Neha",
-      lastName: "Yadav",
-      email: "nehayadav4354@gmail.com",
-      gender: "Female",
-    }, {
-      firstName: "Manisha",
-      lastName: "More",
-      email: "manisha@otssolutions.com",
-      gender: "Female",
-    },
-    {
-      firstName: "Supriya",
-      lastName: "Patil",
-      email: "supriya@otssolutions.com",
-      gender: "Female",
-    },
-    {
-      firstName: "Sahil",
-      lastName: "Singh",
-      email: "sahil.singh@otssolutions.com",
-      gender: "Male",
-    },
-  ];
-
+  
   const options = [
     {
       key: "ascending",
@@ -179,6 +80,13 @@ const TraineesComponent = () => {
 
   }, [filter]);
 
+  useEffect(() => {
+    if(update.firstName){
+      setToUpdate(true);
+    }
+    
+  }, [update]);
+
   let deleteTrainee = (index) => {
     let newData = traineesList.filter((c) => {
       if (traineesList[index] === c) {
@@ -190,22 +98,34 @@ const TraineesComponent = () => {
     })
     setSearchedTraineesList(newData);
     setTraineesList(newData);
+    
   }
 
   const filterByName = () => {
 
   }
 
-  let handleClick=(clicked)=>{
-   if(clicked){
-    setToUpdate(true)
-   }
-  }
+
 
   let handleUpdate=(item,index)=>{
-
+     setUpdate({...item});
+     setToIndex(index);
   }
-
+  function addData(e) {
+    setUpdate({ ...update, [e.target.name]: e.target.value });
+  }
+  let updatefn=()=>{
+    let newData2= traineesList.map((c)=>{
+       if(traineesList[toIndex]===c){
+        return {...update}
+       }
+       return c;
+    })
+    setSearchedTraineesList(newData2);
+    setTraineesList(newData2);
+    setToUpdate(false);
+    setUpdate({firstName:'',lastName:'',email:'',gender:''});
+  }
   return (
     <>
       <Header as="h1">Trainees</Header>
@@ -221,15 +141,18 @@ const TraineesComponent = () => {
           <h1>Update the user details..</h1>
           <Form>
             <Form.Field>
-              <input placeholder='First Name' />
+              <input placeholder='First Name' onChange={addData} name='firstName' value={update.firstName}/>
             </Form.Field>
             <Form.Field>
-              <input placeholder='Last Name' />
+              <input placeholder='Last Name' onChange={addData} name='lastName' value={update.lastName}/>
             </Form.Field>
             <Form.Field>
-              <input placeholder='e-mail can not be changed' disabled='true'/>
+              <input placeholder='e-mail can not be changed' disabled='true' onChange={addData} name='email' value={update.email}/>
             </Form.Field>
-            <Button primary>Update</Button>
+            <Form.Field>
+              <input placeholder='Gender' onChange={addData} name='gender' value={update.gender}/>
+            </Form.Field>
+            <Button primary onClick={updatefn}>Update</Button>
           </Form>
         </div>:<div>
           <Input
@@ -258,7 +181,6 @@ const TraineesComponent = () => {
         <TraineesList
           trainees={searchTerm == "" ? traineesList : searchedTraineesList}
           indexOfTrainee={deleteTrainee}
-          isClicked={handleClick}
           traineeToUpdate={handleUpdate}
 
         />

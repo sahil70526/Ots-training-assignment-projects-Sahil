@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Table, Icon } from "semantic-ui-react";
 
-const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate,isClicked}) => {
-  const[clicked,setClicked]=useState(false)
+const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate}) => {
   return (
     <>
       {trainees.length > 0 && (
@@ -30,9 +29,9 @@ const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate,isClicked}) => {
                       <Icon style={{width: '30px' ,color:'red'}} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
                       <Icon name="edit" style={{width: '50px' }} size='large'
-                       onClick={()=>{setClicked(!clicked)
+                       onClick={()=>{
                         traineeToUpdate(trainee, index)
-                        isClicked(clicked)}}/>
+                       }}/>
                       <Icon name="user delete" onClick={()=>indexOfTrainee(index)} style={{width: '50px' }} size='large' />
                     </Table.Cell>
                   </Table.Row>
