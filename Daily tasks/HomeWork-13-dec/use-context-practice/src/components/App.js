@@ -5,6 +5,7 @@ import CurrencySelectorContext from "../contexts/CurrencySelectorContext";
 import AmountEnteredContext from "../contexts/AmountEnteredContext";
 import PaymentModeSelectorContext from "../contexts/PaymentModeSelectorContext";
 import ReactFragmentsComponent from "./ReactFragmentsComponent";
+import CounterOne from "../CounterOne";
 
 function App() {
   const [currency, setCurrency] = useState("rupee");
@@ -80,6 +81,8 @@ function App() {
             </CurrencySelectorContext.Provider>
           </AmountEnteredContext.Provider>
         </PaymentModeSelectorContext.Provider>
+
+        <CounterOne/>
         <br />
         <br />
         {/* {arrayOfStudents.map((student, index) => {

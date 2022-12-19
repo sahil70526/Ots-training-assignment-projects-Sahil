@@ -153,6 +153,7 @@ const TraineesComponent = () => {
               <input placeholder='Gender' onChange={addData} name='gender' value={update.gender}/>
             </Form.Field>
             <Button primary onClick={updatefn}>Update</Button>
+            <Button primary onClick={()=>setToUpdate(false)}>Cancel</Button>
           </Form>
         </div>:<div>
           <Input

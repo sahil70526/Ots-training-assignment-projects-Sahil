@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { Dropdown, Input, Button, Form } from 'semantic-ui-react'
 
 function SearchForm({ filterPokemon ,filterByHeight}) {
@@ -27,6 +28,11 @@ function SearchForm({ filterPokemon ,filterByHeight}) {
     setValue('');
     setBtnStyle(true);
   }
+  useEffect(()=>{
+if(findHeight !=null){
+  filterByHeight(findHeight)
+}
+  },[findHeight])
 
   return (
     <div
@@ -47,7 +53,7 @@ function SearchForm({ filterPokemon ,filterByHeight}) {
       </Form>
       <Dropdown options={options} selection placeholder="Filter-by-height"
        onChange={(e, data) => { setFindHeight(data.value)
-       filterByHeight(findHeight) }} />
+      }} />
     </div>
   );
 };

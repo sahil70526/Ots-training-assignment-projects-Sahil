@@ -2,39 +2,54 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Card, Image } from 'semantic-ui-react'
 
-const ListItem = ({pokemon,data1}) => {
+const ListItem = ({ pokemon, data1 }) => {
 
-    const [details, setDetails] = useState(null)
-  
+  const [details, setDetails] = useState(null)
 
- const getPokemonDetail = async ()=> {
+
+  const getPokemonDetail = async () => {
     try {
-        const {data} = await axios.get(pokemon.url)
-        const {weight, height,sprites} = data
-        setDetails({weight, height,sprites})
-        data1(data)
+      const { data } = await axios.get(pokemon.url)
+      const { weight, height, sprites, name } = data
+      setDetails({ weight, height, sprites, name })
+      data1(data)
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
- }
+  }
 
-  useEffect(()=>{
+  useEffect(() => {
     getPokemonDetail();
   }, [pokemon])
 
   return (
-        <Card style={{margin:'10px'}}>
-    <Image src={details?.sprites.other.home.front_default} wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>{pokemon.name.toUpperCase()}</Card.Header>
-      <Card.Description>
-     Weight:  {details?.weight}
-      </Card.Description>
-      <Card.Description>
-      Height: {details?.height}
-      </Card.Description>
-    </Card.Content>
-  </Card>
+    <>{
+      pokemon.height ? <Card style={{ margin: '10px' }}>
+        <Image src={pokemon?.sprites.other.home.front_default} wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>{pokemon.name.toUpperCase()}</Card.Header>
+          <Card.Description>
+            Weight:  {pokemon?.weight}
+          </Card.Description>
+          <Card.Description>
+            Height: {pokemon?.height}
+          </Card.Description>
+        </Card.Content>
+      </Card>
+        : <Card style={{ margin: '10px' }}>
+          <Image src={details?.sprites.other.home.front_default} wrapped ui={false} />
+          <Card.Content>
+            <Card.Header>{details?.name.toUpperCase()}</Card.Header>
+            <Card.Description>
+              Weight:  {details?.weight}
+            </Card.Description>
+            <Card.Description>
+              Height: {details?.height}
+            </Card.Description>
+          </Card.Content>
+        </Card>
+    }
+    </>
   )
 }
 

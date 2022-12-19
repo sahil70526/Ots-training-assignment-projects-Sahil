@@ -25,14 +25,14 @@ const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate}) => {
                     </Table.Cell>
                     <Table.Cell>{trainee.email}</Table.Cell>
                     <Table.Cell>{trainee.gender}
-                    {trainee.gender ==='Male' ? <Icon style={{width: '30px' }} size='large' name="male" /> :
+                    {trainee.gender ==='Male' ? <Icon style={{width: '30px',color:'green' }} size='large' name="male" /> :
                       <Icon style={{width: '30px' ,color:'red'}} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
-                      <Icon name="edit" style={{width: '50px' }} size='large'
+                      <Icon name="edit" style={{width: '50px',color:'#F56EB3'}} size='large'
                        onClick={()=>{
                         traineeToUpdate(trainee, index)
                        }}/>
-                      <Icon name="user delete" onClick={()=>indexOfTrainee(index)} style={{width: '50px' }} size='large' />
+                      <Icon name="user delete" onClick={()=>indexOfTrainee(index)} style={{width: '50px',color:'#FF597B' }} size='large' />
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>
