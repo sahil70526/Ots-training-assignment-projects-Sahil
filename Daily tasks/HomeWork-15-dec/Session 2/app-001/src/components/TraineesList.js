@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Table, Icon } from "semantic-ui-react";
+import DeleteModel from "./DeleteModel";
 
-const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate}) => {
+
+const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee }) => {
+  let deleteUser=(item)=>{
+    indexOfTrainee(item)
+  }
+
   return (
     <>
       {trainees.length > 0 && (
@@ -17,6 +23,7 @@ const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate}) => {
 
           {trainees.length > 0 &&
             trainees.map((trainee, index) => {
+             
               return (
                 <Table.Body key={index}>
                   <Table.Row>
@@ -25,14 +32,15 @@ const TraineesList = ({trainees,indexOfTrainee,traineeToUpdate}) => {
                     </Table.Cell>
                     <Table.Cell>{trainee.email}</Table.Cell>
                     <Table.Cell>{trainee.gender}
-                    {trainee.gender ==='Male' ? <Icon style={{width: '30px',color:'green' }} size='large' name="male" /> :
-                      <Icon style={{width: '30px' ,color:'red'}} size='large' name="female" />}</Table.Cell>
+                      {trainee.gender === 'Male' ? <Icon style={{ width: '30px', color: 'green' }} size='large' name="male" /> :
+                        <Icon style={{ width: '30px', color: 'red' }} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
-                      <Icon name="edit" style={{width: '50px',color:'#F56EB3'}} size='large'
-                       onClick={()=>{
-                        traineeToUpdate(trainee, index)
-                       }}/>
-                      <Icon name="user delete" onClick={()=>indexOfTrainee(index)} style={{width: '50px',color:'#FF597B' }} size='large' />
+                      <Icon name="edit" style={{ width: '50px', color: '#F56EB3' }} size='large'
+                        onClick={() => {
+                          traineeToUpdate(trainee, index);
+                        }} />
+                        <DeleteModel  userDetail={index} deleteUser={deleteUser}/>
+
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>

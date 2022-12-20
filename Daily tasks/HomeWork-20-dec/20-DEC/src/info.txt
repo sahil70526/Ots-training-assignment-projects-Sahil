@@ -1,0 +1,19 @@
+Application with local states          <--------------->          Redux [Store] 
+
+UI[events] -> action creator -> action object[type, payload] ->   dispatch -> reducers [pure functions having logics to change or update the state in store]
+bank       -> form filling   -> form filled with type and amount -> (giving form to peon -> forwarding it to banker(concerned department) on the basis of type) 
+    -> department -> employee from particular department updates the bank info
+reducer -> updates the store
+
+ex. 
+
+1. I'll got to the bank 
+2. Bank Form [getMoney, depositMoney, checkMoney, deleteAccount]
+3. Type of task, Amount(optional)
+4. Gave this form to another peon
+5. Check type of task and dispatch it to particular bank person on the basis of task
+6. Banker will perform operation on account by checking payload
+
+
+React-Redux
+-------------------
