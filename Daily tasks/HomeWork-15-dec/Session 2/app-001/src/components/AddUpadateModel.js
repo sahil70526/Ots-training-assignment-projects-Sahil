@@ -3,6 +3,7 @@ import { Button, Header, Icon, Modal, Input, Form } from 'semantic-ui-react'
 
 function AddUpadateModel({ userDetail1, userIndex, userUpdateData,addClicked }) {
   const [open, setOpen] = useState(false)
+  const [open1, setOpen1] = useState(false)
   const [input, setInput] = useState({ firstName: '', lastName: '', email: '', gender: '' });
   const [index, setIndex] = useState(null)
   const [clicked,setClicked]=useState(false)
@@ -12,7 +13,11 @@ function AddUpadateModel({ userDetail1, userIndex, userUpdateData,addClicked }) 
 
   // useEffect for adding data ----------------------
    useEffect(()=>{
-    setClicked(true);
+    console.log(addClicked);
+    if(addClicked){
+      setClicked(true);
+      setInput({firstName: '', lastName: '', email: '', gender: '' })
+    }
    },[addClicked]);
 
   useEffect(() => {
@@ -22,18 +27,26 @@ function AddUpadateModel({ userDetail1, userIndex, userUpdateData,addClicked }) 
     }
   }, [userDetail1])
 
+  const handleAdd=()=>{
+    setOpen1(false)
+    setClicked(false)
+  }
+  
+
   const handleUpdate = () => {
     setOpen(false);
     userUpdateData(input, index);
   }
+  // console.log(Modal.trigger());
   return (
     <>
-      {/* {addClicked && <Modal
+       {/* <Modal
         closeIcon
-        open={open}
-        trigger={<Button>Show Modal</Button>}
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
+        open={open1}
+        trigger={<Button active={clicked}></Button>}
+        onClose={() => setOpen1(false)}
+        onOpen={() => setOpen1(true)}
+        size='mini'
       >
         <Header icon>
          Add New User
@@ -51,7 +64,7 @@ function AddUpadateModel({ userDetail1, userIndex, userUpdateData,addClicked }) 
           <Input placeholder='Gender' onChange={addData} name='gender' value={input.gender} />
         </Modal.Content>
         <Modal.Actions>
-          <Button basic color='red' onClick={() => setOpen(false)}>
+          <Button basic color='red' onClick={() => setOpen1(false)}>
             Cancel
           </Button>
           <Button color='green' onClick={handleAdd}>
@@ -59,8 +72,7 @@ function AddUpadateModel({ userDetail1, userIndex, userUpdateData,addClicked }) 
 
           </Button>
         </Modal.Actions>
-      </Modal>
-    } */}
+      </Modal> */}
       <Modal
         closeIcon
         open={open}

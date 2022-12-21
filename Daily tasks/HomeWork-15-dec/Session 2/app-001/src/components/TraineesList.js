@@ -38,7 +38,7 @@ let handleSend=(data,index)=>{
                       {trainee.gender === 'Male' ? <Icon style={{ width: '30px', color: 'green' }} size='large' name="male" /> :
                         <Icon style={{ width: '30px', color: 'red' }} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
-                        <AddUpadateModel userDetail1={trainee} userIndex={index}  userUpdateData={handleSend}/>
+                        <AddUpadateModel userDetail1={trainee} userIndex={index}  userUpdateData={handleSend} addClicked={addClicked}/>
                         <DeleteModel  userDetail={index} deleteUser={deleteUser}/>
 
                     </Table.Cell>
