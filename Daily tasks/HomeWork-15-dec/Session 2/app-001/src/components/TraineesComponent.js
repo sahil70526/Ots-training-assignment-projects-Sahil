@@ -8,11 +8,9 @@ const TraineesComponent = () => {
   const [traineesList, setTraineesList] = useState([]);
   const [searchedTraineesList, setSearchedTraineesList] = useState([]);
   const [filter, setFilter] = useState("");
-  const [toUpdate,setToUpdate]=useState(false)
-  const [update,setUpdate]=useState({firstName:'',lastName:'',email:'',gender:''});
-  const [toIndex,setToIndex]=useState(null);
+  const [addClicked, setAddClicked] = useState(false);
 
-  
+
   const options = [
     {
       key: "ascending",
@@ -80,13 +78,6 @@ const TraineesComponent = () => {
 
   }, [filter]);
 
-  useEffect(() => {
-    if(update.firstName){
-      setToUpdate(true);
-    }
-    
-  }, [update]);
-
   let deleteTrainee = (index) => {
     let newData = traineesList.filter((c) => {
       if (traineesList[index] === c) {
@@ -98,64 +89,35 @@ const TraineesComponent = () => {
     })
     setSearchedTraineesList(newData);
     setTraineesList(newData);
-    
+
   }
 
   const filterByName = () => {
 
   }
 
-
-
-  let handleUpdate=(item,index)=>{
-     setUpdate({...item});
-     setToIndex(index);
-  }
-  function addData(e) {
-    setUpdate({ ...update, [e.target.name]: e.target.value });
-  }
-  let updatefn=()=>{
-    let newData2= traineesList.map((c)=>{
-       if(traineesList[toIndex]===c){
-        return {...update}
-       }
-       return c;
+  const updateFn = (item, index) => {
+    let newData2 = traineesList.map((c) => {
+      if (traineesList[index] === c) {
+        return { ...item }
+      }
+      return c;
     })
-    setSearchedTraineesList(newData2);
     setTraineesList(newData2);
-    setToUpdate(false);
-    setUpdate({firstName:'',lastName:'',email:'',gender:''});
+    setSearchedTraineesList(newData2);
   }
+
   return (
     <>
       <Header as="h1">Trainees</Header>
-      
+
       <div
         style={{
           display: "flex",
           justifyContent: "flex-end",
           marginRight: "1rem",
         }}
-      >{toUpdate?
-        <div >
-          <h1>Update the user details..</h1>
-          <Form>
-            <Form.Field>
-              <input placeholder='First Name' onChange={addData} name='firstName' value={update.firstName}/>
-            </Form.Field>
-            <Form.Field>
-              <input placeholder='Last Name' onChange={addData} name='lastName' value={update.lastName}/>
-            </Form.Field>
-            <Form.Field>
-              <input placeholder='e-mail can not be changed' disabled='true' onChange={addData} name='email' value={update.email}/>
-            </Form.Field>
-            <Form.Field>
-              <input placeholder='Gender' onChange={addData} name='gender' value={update.gender}/>
-            </Form.Field>
-            <Button primary onClick={updatefn}>Update</Button>
-            <Button primary onClick={()=>setToUpdate(false)}>Cancel</Button>
-          </Form>
-        </div>:<div>
+      ><div>
           <Input
             style={{ width: "25rem" }}
             icon={{ name: "search", circular: true, link: true }}
@@ -171,18 +133,24 @@ const TraineesComponent = () => {
               trigger={<></>}
               onChange={(e, value) => { setFilter(value.value) }}
             />
+
           </Button.Group>
+          <Button.Group color="blue" style={{ marginLeft: "0.5rem" }}>
+            <Button onClick={() => setAddClicked(true)}>Add Trainee</Button>
+          </Button.Group>
+
         </div>
 
-      }
-          
+
+
       </div>
 
       <div style={{ margin: "1rem" }}>
         <TraineesList
           trainees={searchTerm == "" ? traineesList : searchedTraineesList}
           indexOfTrainee={deleteTrainee}
-          traineeToUpdate={handleUpdate}
+          addClicked={addClicked}
+          traineeToUpdate={updateFn}
 
         />
       </div>

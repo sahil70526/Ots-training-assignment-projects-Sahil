@@ -5,12 +5,13 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {data: {username:null}}
 
+
 const userDepartment = createSlice({
     name: 'user',
     initialState,
     reducers: {
         login: (state, action)=>{
-            //console.log('action',action)
+            console.log('action',action)
             state.data = action.payload
         },
         logout: (state) => {

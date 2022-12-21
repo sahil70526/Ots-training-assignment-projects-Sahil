@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Table, Icon } from "semantic-ui-react";
 import DeleteModel from "./DeleteModel";
+import AddUpadateModel from "./AddUpadateModel";
 
 
-const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee }) => {
+const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee,addClicked }) => {
   let deleteUser=(item)=>{
     indexOfTrainee(item)
   }
-
+let handleSend=(data,index)=>{
+  traineeToUpdate(data,index)
+}
   return (
     <>
       {trainees.length > 0 && (
@@ -35,10 +38,7 @@ const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee }) => {
                       {trainee.gender === 'Male' ? <Icon style={{ width: '30px', color: 'green' }} size='large' name="male" /> :
                         <Icon style={{ width: '30px', color: 'red' }} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
-                      <Icon name="edit" style={{ width: '50px', color: '#F56EB3' }} size='large'
-                        onClick={() => {
-                          traineeToUpdate(trainee, index);
-                        }} />
+                        <AddUpadateModel userDetail1={trainee} userIndex={index}  userUpdateData={handleSend}/>
                         <DeleteModel  userDetail={index} deleteUser={deleteUser}/>
 
                     </Table.Cell>
