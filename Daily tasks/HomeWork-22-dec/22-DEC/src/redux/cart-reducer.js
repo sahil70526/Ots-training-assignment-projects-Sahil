@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   data: {
-    cartItem: {},
+    cartItem: { 0: { item: { id: 0, name: "", price: "" }, count: 0 } },
   },
 };
 
@@ -25,13 +25,13 @@ const cartSlice = createSlice({
   reducers: {
     addCart: (state, action) => {
       let id1 = action.payload.id;
-      if (Object.keys(state.data.cartItem).length===0) {
-        state.data= {cartItem:{[id1]:{item:{...action.payload},count:0}}}
-      } else if(state.data.cartItem.hasOwnProperty(id1)){
-        state.cartItem.id1.count +=1;
-        state.data= {cartItem:{[id1]:{item:{...action.payload}}}}
-      }else{
-        state.data= {cartItem:{[id1]:{item:{...action.payload},count:0}}}
+      if (state.data.cartItem.hasOwnProperty(`${id1}`)) {
+        state.cartItem.id1.count += 1;
+        state.data = { cartItem: { [id1]: { item: { ...action.payload } } } };
+      } else {
+        state.data = {
+          cartItem: { [id1]: { item: { ...action.payload }, count: 0 } },
+        };
       }
     },
     removeFromCart: (state, action) => {
