@@ -26,13 +26,13 @@ const cartSlice = createSlice({
     addCart: (state, action) => {
       let id1 = action.payload.id;
       if (state.data.cartItem.hasOwnProperty(`${id1}`)) {
-        state.cartItem.id1.count += 1;
-        state.data = { cartItem: { [id1]: { item: { ...action.payload } } } };
+        let newCount=state.cartItem.id1.count + 1;
+        state.data.cartItem={ [id1]: { item: { ...action.payload } } ,count:newCount} 
       } else {
-        state.data = {
-          cartItem: { [id1]: { item: { ...action.payload }, count: 0 } },
+        state.data.cartItem={ [id1]: { item: { ...action.payload }, count: 0 },
         };
       }
+      state.data= {...state.data.cartItem}
     },
     removeFromCart: (state, action) => {
       if (state.data.cartItem.id === action.payload) {
