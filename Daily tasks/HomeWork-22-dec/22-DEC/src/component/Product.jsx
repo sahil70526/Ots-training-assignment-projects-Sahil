@@ -9,7 +9,7 @@ const Product = () => {
   return (
     <div style={{display:'flex', flexWrap:'wrap', }}>
         {
-            products.length>0 && products.map((product)=>(
+            products.length>0 && products.map((product,index)=>(
                 <div style={{height:'300px', width:'300px', border:'1px solid'}} key={product.id}>
                     <div>{product.id}</div>
                     <div>{product.name}</div>

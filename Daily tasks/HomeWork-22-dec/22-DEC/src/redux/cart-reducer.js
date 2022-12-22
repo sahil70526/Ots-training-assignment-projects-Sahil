@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {data: {cartItem:{item:{id:null,name:'',price:''},count:0}}}
+const initialState = {
+  data: {
+    cartItem: {},
+  },
+};
 
 // cartItem: {
 //    1:{item: {id: 1, name:'Smart Tv', price:'200$'}, count:5}
@@ -16,22 +20,30 @@ const initialState = {data: {cartItem:{item:{id:null,name:'',price:''},count:0}}
 // else create a key 1 and assign action.payload as a value to id
 
 const cartSlice = createSlice({
-    name:'cart',
-    initialState,
-    reducers:{
+  name: "cart",
+  initialState,
+  reducers: {
+    addCart: (state, action) => {
+      let id1 = action.payload.id;
+      if (Object.keys(state.data.cartItem).length===0) {
+        state.data= {cartItem:{[id1]:{item:{...action.payload},count:0}}}
+      } else if(state.data.cartItem.hasOwnProperty(id1)){
+        state.cartItem.id1.count +=1;
+        state.data= {cartItem:{[id1]:{item:{...action.payload}}}}
+      }else{
+        state.data= {cartItem:{[id1]:{item:{...action.payload},count:0}}}
+      }
+    },
+    removeFromCart: (state, action) => {
+      if (state.data.cartItem.id === action.payload) {
+        state.data = { cartItem: { id: null, name: "", price: "" } };
+      }
+    },
+    removeAll: () => {},
+    // inrement and decrement reducer
+  },
+});
 
-        addCart: (state, action) => {
-             state.data = {cartItem: [...state.data.cartItem, action.payload] }
-        },
-        removeFromCart: (state, action) => {
-            const newArray = state.data.cartItem.filter((item, index)=>index!==action.payload)
-            state.data = {cartItem: newArray}
-        },
-        removeAll:()=>{}
-       // inrement and decrement reducer
-    }
-})
+export const { addCart, removeFromCart } = cartSlice.actions;
 
-export const {addCart, removeFromCart} = cartSlice.actions
-
-export default cartSlice
+export default cartSlice;
