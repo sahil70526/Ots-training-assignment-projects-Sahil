@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import { Button, Header, Icon, Modal } from 'semantic-ui-react'
-const DeleteModel=({userDetail,deleteUser})=> {
-    const [open, setOpen] =useState(false)
-    let action =()=>{
-      setOpen(false);
-      deleteUser(userDetail);
-    }
+import "./styles.css";
+const DeleteModel = ({ userDetail, deleteUser }) => {
+  const [open, setOpen] = useState(false)
+  let action = () => {
+    setOpen(false);
+    deleteUser(userDetail);
+  }
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
       size='small'
-      trigger={<Icon name="zip" style={{ width: '50px' }} size='large'/>}
+      trigger={<Icon name="zip" style={{ width: '50px' }} size='large' className='onHoverColor' />}
     >
       <Header icon>
         <Icon name='archive' />
@@ -20,14 +21,14 @@ const DeleteModel=({userDetail,deleteUser})=> {
       </Header>
       <Modal.Content>
         <p>
-        Are you sure ...
+          Are you sure ...
         </p>
       </Modal.Content>
       <Modal.Actions>
-        <Button basic color='red' inverted onClick={() => setOpen(false)}>
+        <Button basic color='red'  onClick={() => setOpen(false)}>
           <Icon name='remove' /> No
         </Button>
-        <Button color='green' inverted onClick={action}>
+        <Button color='green'  onClick={action}>
           <Icon name='checkmark' /> Yes
         </Button>
       </Modal.Actions>

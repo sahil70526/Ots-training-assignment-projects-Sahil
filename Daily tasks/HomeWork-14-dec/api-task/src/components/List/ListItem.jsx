@@ -8,6 +8,7 @@ const ListItem = ({ pokemon, data1 }) => {
 
 
   const getPokemonDetail = async () => {
+    console.log(pokemon.url);
     try {
       const { data } = await axios.get(pokemon.url)
       const { weight, height, sprites, name } = data

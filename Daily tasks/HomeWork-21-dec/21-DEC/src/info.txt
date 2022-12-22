@@ -1,0 +1,15 @@
+Middleware: Application lies between a process, modifies the process and then forwarrd it.
+
+
+amit kumar sahani ------>  Formatting(name => first letter Caps, remaining small) -----> database(Amit Kumar Sahani)
+
+Thunk (middleware use to perform async operation )
+
+Pure function : 1. function which has no side effect, 2. Always returns same output for same input
+
+Action -> Middleware(Thunk)[wait for async op to complete] -> Dispatch -> Reducer -> Store[State]  : Synchronous
+
+
+Login 
+if Logged in 
+then search for pokemon

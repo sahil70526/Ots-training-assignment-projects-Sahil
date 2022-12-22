@@ -28,7 +28,8 @@ function App() {
         } else { return false }
       });
       setPaginatedPokemons(newData);
-      setRenderPokemon(newData)
+      setRenderPokemon(newData);
+      
     } else if (scale === 'Medium') {
       let newData1 = height1.filter((item) => {
         if (item.height >= 10 && item.height < 20) {
@@ -36,7 +37,7 @@ function App() {
         } else { return false }
       });
       setPaginatedPokemons(newData1);
-      setRenderPokemon(newData1)
+      setRenderPokemon(newData1);
     }
     else if (scale === 'Small') {
       let newData2 = height1.filter((item) => {
@@ -45,10 +46,9 @@ function App() {
         } else return false
       });
       setPaginatedPokemons(newData2);
-      setRenderPokemon(newData2)
+      setRenderPokemon(newData2);
     }
     setScale('');
-
   }
   useEffect(() => {
 

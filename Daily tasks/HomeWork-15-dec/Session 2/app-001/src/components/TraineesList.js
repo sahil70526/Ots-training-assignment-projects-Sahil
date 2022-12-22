@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { Table, Icon } from "semantic-ui-react";
 import DeleteModel from "./DeleteModel";
 import AddUpadateModel from "./AddUpadateModel";
+import './styles.css'
 
 
-const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee,addClicked }) => {
-  let deleteUser=(item)=>{
+const TraineesList = ({ trainees, traineeToUpdate, indexOfTrainee }) => {
+  let deleteUser = (item) => {
     indexOfTrainee(item)
   }
-let handleSend=(data,index)=>{
-  traineeToUpdate(data,index)
-}
+  let handleSend = (data, index) => {
+    traineeToUpdate(data, index)
+  }
   return (
     <>
       {trainees.length > 0 && (
-        <Table fixed>
+        <Table fixed >
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
@@ -26,7 +27,7 @@ let handleSend=(data,index)=>{
 
           {trainees.length > 0 &&
             trainees.map((trainee, index) => {
-             
+
               return (
                 <Table.Body key={index}>
                   <Table.Row>
@@ -38,8 +39,8 @@ let handleSend=(data,index)=>{
                       {trainee.gender === 'Male' ? <Icon style={{ width: '30px', color: 'green' }} size='large' name="male" /> :
                         <Icon style={{ width: '30px', color: 'red' }} size='large' name="female" />}</Table.Cell>
                     <Table.Cell>
-                        <AddUpadateModel userDetail1={trainee} userIndex={index}  userUpdateData={handleSend} addClicked={addClicked}/>
-                        <DeleteModel  userDetail={index} deleteUser={deleteUser}/>
+                      <AddUpadateModel userDetail1={trainee} userIndex={index} userUpdateData={handleSend} title="edit" name='Update Trainee' />
+                      <DeleteModel userDetail={index} deleteUser={deleteUser} />
 
                     </Table.Cell>
                   </Table.Row>

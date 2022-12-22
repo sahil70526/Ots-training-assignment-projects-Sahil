@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Header, Input, Button, Dropdown, Form } from "semantic-ui-react";
 import TraineesList from "./TraineesList";
 import mockTraineesData from "./MockTraineesData";
+import AddUpadateModel from "./AddUpadateModel";
 
 const TraineesComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [traineesList, setTraineesList] = useState([]);
   const [searchedTraineesList, setSearchedTraineesList] = useState([]);
   const [filter, setFilter] = useState("");
-  const [addClicked, setAddClicked] = useState(false);
 
 
   const options = [
@@ -92,7 +92,12 @@ const TraineesComponent = () => {
 
   }
 
-  const filterByName = () => {
+  const handleAdd = (trainee) => {
+    if (trainee.firstName && trainee.lastName && trainee.email && trainee.gender) {
+      traineesList.push(trainee);
+      setTraineesList([...traineesList])
+      setSearchedTraineesList([...traineesList])
+    }
 
   }
 
@@ -125,7 +130,7 @@ const TraineesComponent = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <Button.Group color="blue" style={{ marginLeft: "1rem" }}>
-            <Button onClick={filterByName}>Sort</Button>
+            <Button >Sort</Button>
             <Dropdown
               className="button icon"
               floating
@@ -136,7 +141,7 @@ const TraineesComponent = () => {
 
           </Button.Group>
           <Button.Group color="blue" style={{ marginLeft: "0.5rem" }}>
-            <Button onClick={() => setAddClicked(true)}>Add Trainee</Button>
+            <Button><AddUpadateModel title='add' name='Add Trainee' userAdd={handleAdd} /></Button>
           </Button.Group>
 
         </div>
@@ -149,7 +154,6 @@ const TraineesComponent = () => {
         <TraineesList
           trainees={searchTerm == "" ? traineesList : searchedTraineesList}
           indexOfTrainee={deleteTrainee}
-          addClicked={addClicked}
           traineeToUpdate={updateFn}
 
         />
