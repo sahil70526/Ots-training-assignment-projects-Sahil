@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { data: {} };
+const initialState = {
+  data: { cartItem: { 1: { name: null, price: null, id: 1, count: 0 } } },
+};
 
 // cartItem: {
 //    1:{item: {id: 1, name:'Smart Tv', price:'200$'}, count:5}
@@ -20,15 +22,25 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, action) => {
-      if (Object.keys(state.data).length === 0) {
-        state.data = { cartItem: { [action.payload.id]: { item: { ...action.payload }, count: 0 } } }
-      } else if (Object.keys(state.data).length>0&&state.data.cartItem.hasOwnProperty(action.payload.id)) {
-        // let id1 = action.payload.id
-        // let count = state.data.cartItem.id1.count;
-        state.data = { cartItem: { [action.payload.id]: { item: { ...state.data.cartItem.item }, count:0 } } }
+      if (Object.keys(state.data.cartItem).length === 1) {
+        // state.data.cartItem[1].count +=1
+        state.data.cartItem = {
+          [action.payload.id]: { ...action.payload },
+        };
+      }
+      
+      
+      if (state.data.cartItem.hasOwnProperty(action.payload.id)) {
+        let count1=state.data.cartItem[action.payload.id].count + 1
+        state.data.cartItem = {
+          ...state.data.cartItem,
+          [action.payload.id]: {
+            ...action.payload,
+            count:count1,
+          },
+        };
       } else {
-        state.data.cartItem = { [action.payload.id]: { item: { ...action.payload }, count: 0 } }
-        state.data = { ...state.data.cartItem }
+        state.data = {  ...state.data.cartItem,[action.payload.id]: { ...action.payload },};
       }
     },
     removeFromCart: (state, action) => {
@@ -36,7 +48,7 @@ const cartSlice = createSlice({
       //   state.data = { cartItem: { id: null, name: "", price: "" } };
       // }
     },
-    removeAll: () => { },
+    removeAll: () => {},
     // inrement and decrement reducer
   },
 });
@@ -44,3 +56,5 @@ const cartSlice = createSlice({
 export const { addCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice;
+
+// let updateCartItem={...state.data.cartItem[action.payload.id]};
