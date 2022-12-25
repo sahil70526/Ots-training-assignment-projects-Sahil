@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  data: { cartItem: { 1: { name: null, price: null, id: 1, count: 0 } } },
+  data: { cartItem: {} },
 };
 
 // cartItem: {
@@ -22,31 +22,30 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addCart: (state, action) => {
-      if (Object.keys(state.data.cartItem).length === 1) {
-        // state.data.cartItem[1].count +=1
-        state.data.cartItem = {
-          [action.payload.id]: { ...action.payload },
+      if (Object.keys(state.data.cartItem).length === 0) {
+        state.data = {
+          cartItem: { [action.payload.id]: { ...action.payload } },
         };
-      }
-      
-      
-      if (state.data.cartItem.hasOwnProperty(action.payload.id)) {
-        let count1=state.data.cartItem[action.payload.id].count + 1
-        state.data.cartItem = {
-          ...state.data.cartItem,
-          [action.payload.id]: {
-            ...action.payload,
-            count:count1,
+      } else if (state.data.cartItem.hasOwnProperty(action.payload.id)) {
+        let count1 = state.data.cartItem[action.payload.id].count + 1;
+        state.data = {
+          cartItem: {
+            ...state.data.cartItem,
+            [action.payload.id]: {
+              ...state.data.cartItem[action.payload.id],
+              count: count1,
+            },
           },
         };
       } else {
-        state.data = {  ...state.data.cartItem,[action.payload.id]: { ...action.payload },};
+        state.data = {cartItem:{...state.data.cartItem,[action.payload.id]:{...action.payload}}};
       }
     },
     removeFromCart: (state, action) => {
-      // if (state.data.cartItem.id === action.payload) {
-      //   state.data = { cartItem: { id: null, name: "", price: "" } };
-      // }
+      if (state.data.cartItem[action.payload].id === action.payload) {
+        let item = delete state.data.cartItem[action.payload]
+        state.data = {cartItem:{...state.data.cartItem,[action.payload]:{...item}} };
+      }
     },
     removeAll: () => {},
     // inrement and decrement reducer
