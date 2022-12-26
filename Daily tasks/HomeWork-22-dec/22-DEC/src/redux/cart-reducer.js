@@ -8,7 +8,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-
     //  Adding item into cart --------------------------
 
     addCart: (state, action) => {
@@ -28,7 +27,12 @@ const cartSlice = createSlice({
           },
         };
       } else {
-        state.data = { cartItem: { ...state.data.cartItem, [action.payload.id]: { ...action.payload } } };
+        state.data = {
+          cartItem: {
+            ...state.data.cartItem,
+            [action.payload.id]: { ...action.payload },
+          },
+        };
       }
     },
 
@@ -36,7 +40,7 @@ const cartSlice = createSlice({
 
     removeFromCart: (state, action) => {
       if (state.data.cartItem[action.payload].id === action.payload) {
-        let item = delete state.data.cartItem[action.payload]
+        let item = delete state.data.cartItem[action.payload];
         state.data = { cartItem: { ...state.data.cartItem, ...item } };
       }
     },
@@ -44,14 +48,11 @@ const cartSlice = createSlice({
     //  removing all element into cart --------------------------
 
     removeAll: (state, action) => {
-
       if (action.payload) {
         let newItem = delete state.data.cartItem;
-        state.data = { cartItem: { ...newItem } };
-
+        state.data = { cartItem: newItem  };
       }
     },
-
 
     // inrement and decrement reducer
 
@@ -69,22 +70,27 @@ const cartSlice = createSlice({
     },
 
     decreaseCartItemCount: (state, action) => {
-      let count2 = state.data.cartItem[action.payload.id].count - 1;
-      state.data = {
-        cartItem: {
-          ...state.data.cartItem,
-          [action.payload.id]: {
-            ...state.data.cartItem[action.payload.id],
-            count: count2,
+      if (state.data.cartItem[action.payload.id].count > 1) {
+        state.data = {
+          cartItem: {
+            ...state.data.cartItem,
+            [action.payload.id]: {
+              ...state.data.cartItem[action.payload.id],
+              count: state.data.cartItem[action.payload.id].count - 1,
+            },
           },
-        },
-      };
+        };
+      }
     },
   },
-
 });
 
-export const { addCart, removeFromCart, increaseCartItemCount, decreaseCartItemCount, removeAll } = cartSlice.actions;
+export const {
+  addCart,
+  removeFromCart,
+  increaseCartItemCount,
+  decreaseCartItemCount,
+  removeAll,
+} = cartSlice.actions;
 
 export default cartSlice;
-

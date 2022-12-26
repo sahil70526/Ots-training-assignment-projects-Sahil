@@ -9,8 +9,8 @@ const Cart = () => {
   const [removeAllItem, setRemoveAllItem] = useState(true)
   const dispatch = useDispatch();
   return (
-    <div>
-      <span ><span style={{ margin: '15px', fontSize: '220%' }}>Cart</span><Button onClick={() => {
+    <div style={{marginTop:'5px'}}>
+      <span ><span style={{ marginRight: '15px', fontSize: '220%' }}>Cart</span><Button onClick={() => {
         removeAllItem && dispatch(removeAll(removeAllItem));
         setRemoveAllItem(false)
 
