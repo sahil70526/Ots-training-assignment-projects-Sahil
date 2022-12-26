@@ -4,23 +4,13 @@ const initialState = {
   data: { cartItem: {} },
 };
 
-// cartItem: {
-//    1:{item: {id: 1, name:'Smart Tv', price:'200$'}, count:5}
-//    2:{item: {id: 2, name:'Smart Tv', price:'200$'}, count:2}
-//    3:{item: {id: 3, name:'Smart Tv', price:'200$'}, count:1}
-//}
-
-// {id: 1, name:'Smart Tv', price:'200$'}
-
-// action.payload = {id: 1, name:'Smart Tv', price:'200$'}
-// action.payload.id = 1
-// if 1 is present in cartItem as a key them increase count
-// else create a key 1 and assign action.payload as a value to id
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+
+    //  Adding item into cart --------------------------
+
     addCart: (state, action) => {
       if (Object.keys(state.data.cartItem).length === 0) {
         state.data = {
@@ -38,22 +28,63 @@ const cartSlice = createSlice({
           },
         };
       } else {
-        state.data = {cartItem:{...state.data.cartItem,[action.payload.id]:{...action.payload}}};
+        state.data = { cartItem: { ...state.data.cartItem, [action.payload.id]: { ...action.payload } } };
       }
     },
+
+    //  removing element into cart --------------------------
+
     removeFromCart: (state, action) => {
       if (state.data.cartItem[action.payload].id === action.payload) {
         let item = delete state.data.cartItem[action.payload]
-        state.data = {cartItem:{...state.data.cartItem,[action.payload]:{...item}} };
+        state.data = { cartItem: { ...state.data.cartItem, ...item } };
       }
     },
-    removeAll: () => {},
+
+    //  removing all element into cart --------------------------
+
+    removeAll: (state, action) => {
+
+      if (action.payload) {
+        let newItem = delete state.data.cartItem;
+        state.data = { cartItem: { ...newItem } };
+
+      }
+    },
+
+
     // inrement and decrement reducer
+
+    increaseCartItemCount: (state, action) => {
+      let count1 = state.data.cartItem[action.payload.id].count + 1;
+      state.data = {
+        cartItem: {
+          ...state.data.cartItem,
+          [action.payload.id]: {
+            ...state.data.cartItem[action.payload.id],
+            count: count1,
+          },
+        },
+      };
+    },
+
+    decreaseCartItemCount: (state, action) => {
+      let count2 = state.data.cartItem[action.payload.id].count - 1;
+      state.data = {
+        cartItem: {
+          ...state.data.cartItem,
+          [action.payload.id]: {
+            ...state.data.cartItem[action.payload.id],
+            count: count2,
+          },
+        },
+      };
+    },
   },
+
 });
 
-export const { addCart, removeFromCart } = cartSlice.actions;
+export const { addCart, removeFromCart, increaseCartItemCount, decreaseCartItemCount, removeAll } = cartSlice.actions;
 
 export default cartSlice;
 
-// let updateCartItem={...state.data.cartItem[action.payload.id]};

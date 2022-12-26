@@ -141,7 +141,7 @@ const TraineesComponent = () => {
 
           </Button.Group>
           <Button.Group color="blue" style={{ marginLeft: "0.5rem" }}>
-            <Button><AddUpadateModel title='add' name='Add Trainee' userAdd={handleAdd} /></Button>
+            <Button><AddUpadateModel title='add' name='Add Trainee' userAdd={handleAdd} />Add trainee</Button>
           </Button.Group>
 
         </div>
@@ -163,3 +163,5 @@ const TraineesComponent = () => {
 };
 
 export default TraineesComponent;
+
+

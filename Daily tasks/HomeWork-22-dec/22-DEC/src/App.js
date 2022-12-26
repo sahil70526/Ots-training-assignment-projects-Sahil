@@ -8,9 +8,9 @@ import { store } from './redux/store';
 function App() {
   return (
     <div className="App">
-      <div style={{display:'flex', background:'gray', padding:'4px'}}>
-        <Link style={{marginRight:'20px'}} to='/'>Product</Link>
-        <Link to='/cart'>Cart</Link>
+      <div style={{display:'flex', background:'black', padding:'4px',height:'50px'}}>
+        <Link style={{marginRight:'20px', color:'white',fontSize:'larger',marginTop:'10px'}} to='/'>Product</Link>
+        <Link style={{ color:'white',fontSize:'larger' ,marginLeft:'20px',marginTop:'10px'}} to='/cart'>Cart</Link>
       </div>
       <Provider store={store}>
       <Routes>
