@@ -38,7 +38,7 @@ if (str1.length === str2.length) {
 
 // printing duplicates-----------------
 
-let str3 = "asasdfvvffvvcdc";
+let str3 = "asasdfvvffvvcdctht";
 let result2 = "";
 
 for (let i = 0; i < str3.length - 1; i++) {
@@ -54,7 +54,7 @@ console.log(result2);
 
 // reverse the words of a given string ------------------
 
-let str4 = "This is a string";
+let str4 = "This is a string jhfdh fdjnjkfg  klfgknfgdjk";
 let newarr = str4.split(" ");
 let result3 = [];
 for (let i = newarr.length - 1; i >= 0; i--) {
@@ -62,3 +62,18 @@ for (let i = newarr.length - 1; i >= 0; i--) {
 }
 
 console.log(result3.join(" "));
+
+
+// ---- by mirror form ----------------
+let Length = newarr.length
+for (let i = 0; i <= Length; i++) {
+  if (i !== Length) {
+    let temp = newarr[i];
+    newarr[i] = newarr[Length];
+    newarr[Length] = temp;
+  }
+  Length--
+}
+console.log(newarr.join(' '));
+
+

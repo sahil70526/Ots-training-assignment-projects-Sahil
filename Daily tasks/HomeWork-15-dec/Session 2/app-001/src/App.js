@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+
 import MenuBar from "./components/MenuBar";
 import TraineesComponent from "./components/TraineesComponent";
 import Contact from "./components/Contact";
