@@ -36,10 +36,12 @@ const dbRead = async () => {
         } else {
             return false;
         }
-    })
+    })  
     if (newData.length === 0) {
         await data1.save();
     }
+
+    await student.deleteOne({name:"Sahil Singh"})
     console.log(data.length);
 
     // ---------- deleting duplicate data ------------
