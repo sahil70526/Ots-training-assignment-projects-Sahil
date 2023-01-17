@@ -13,12 +13,30 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="./styles.css">
+   <style>
+    .container-img1{
+      display: flex;
+      justify-content: center;
+      margin-top: 2%;
+    }
+   .image-container{
+    height:300px;
+    width: 30%;
+   
+   
+   }
+   .profile-img{
+    width: 100%;
+    object-fit: contain;
+   }
+
+   </style>
 
     <title>HomePage</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Home</a>
         <button
@@ -56,14 +74,13 @@
 
 
     </nav>
-    <div >
-        <img
-        src="https://t3.ftcdn.net/jpg/00/80/62/46/240_F_80624652_abRdSHK8T5TYchdgHDbF9Q6rfgtnbvZ2.jpg"
-          class="rounded mx-auto d-block"
-          alt="profile image"
-        />
-        <H3 class="rounded mx-auto d-block"> Hi , Sahil Singh</H3>
-      </div>
+  <div class="container-img1">
+    <div class="image-container">
+      <img class="profile-img" src="https://img.freepik.com/free-vector/hacker-operating-laptop-cartoon-icon-illustration-technology-icon-concept-isolated-flat-cartoon-style_138676-2387.jpg" alt="">
+      <h1>Hi , I am Sahil Singh</h1>
+    </div>
+  </div>
+
 
 
       <div>

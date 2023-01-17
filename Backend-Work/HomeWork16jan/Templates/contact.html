@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .container-img1 {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            margin-bottom: 5%;
+        }
+
+        .image-container {
+            height: 300px;
+            width: 30%;
+
+
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .text-item {
+            margin-left: 80px;
+        }
+
+        .main {
+            padding-bottom: 20px;
+        }
+
+        .card-container {
+            height: 80px;
+            width: 20%;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/about">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/contact">Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-img1">
+            <div class="image-container">
+                <img class="profile-img"
+                    src="https://img.freepik.com/free-vector/hacker-operating-laptop-cartoon-icon-illustration-technology-icon-concept-isolated-flat-cartoon-style_138676-2387.jpg"
+                    alt="">
+                <h1 class="text-item">Contact Me On ...</h1>
+            </div>
+        </div>
+
+        <div class="container-img1">
+            <div class="card-container">
+                <a href="https://in.linkedin.com/">
+                    <img class="card-img"
+                        src="https://static.vecteezy.com/system/resources/previews/009/097/186/original/blue-color-white-background-linkedin-design-logo-sign-symbol-free-vector.jpg" />
+
+                </a>
+            </div>
+            <div class="card-container">
+                <a href="https://github.com/sahil70526">
+                    <img class="card-img"
+                        src="https://qph.cf2.quoracdn.net/main-qimg-729a22aba98d1235fdce4883accaf81e" />
+
+                </a>
+            </div>
+            <div class="card-container">
+
+                <a href="https://www.instagram.com/">
+                    <img class="card-img" src="https://1000logos.net/wp-content/uploads/2017/02/Instagram-Logo.png" />
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

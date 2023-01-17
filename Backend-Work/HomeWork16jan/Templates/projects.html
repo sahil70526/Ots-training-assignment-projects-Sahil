@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .container-img1 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5%;
+        }
+
+        .image-container {
+            height: 300px;
+            width: 30%;
+
+
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .text-item{
+            margin-left: 80px;
+        }
+        .main{
+            padding-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/projects">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/about">About</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/contact">Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="container-img1">
+            <div class="image-container">
+                <img class="profile-img"
+                    src="https://img.freepik.com/free-vector/hacker-operating-laptop-cartoon-icon-illustration-technology-icon-concept-isolated-flat-cartoon-style_138676-2387.jpg"
+                    alt="">
+                <h1 class="text-item">My Projects..</h1>
+            </div>
+        </div>
+    
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Tourmate</h5>
+                            <p class="card-text">It is a demo tourism website in which, we have used google authentication
+                                ,maps and many more things. It is a fully responsive application made by React.js.</p>
+                            <a href="https://ots-tourmate.netlify.app/" class="btn btn-primary">Go To Application</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Algoviz Algorithm-Visualizer</h5>
+                            <p class="card-text">Just take look how algorithms actually work. In this website we have used
+                                the sorting ,searching and many more problems which are famous regarding dsa.</p>
+                            <a href="https://github.com/sahil70526/AlgoViz--Algorithm-Visualizer" class="btn btn-primary">Go
+                                to application</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Secret Protection System</h5>
+                            <p class="card-text">As the name suggests secrect protection system ,this application is a
+                                fullstack application made with the help of node.js,Ejs and passport.js.</p>
+                            <a href="https://github.com/sahil70526/Secret-Protection-System" class="btn btn-primary">Go to
+                                application</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+   
+
+</body>
+
+</html>
