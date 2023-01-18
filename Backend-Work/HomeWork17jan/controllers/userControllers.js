@@ -28,10 +28,15 @@ const updateUserData = (req, res) => {
       return i;
     }
   });
-
+let {name,city,email,phone}=req.body;
+if(name&&city&&email&&phone){
   let updatedUser = { id: id, ...req.body };
   newData.splice(index2, 1, updatedUser);
-  res.send(`user at ${id} is updated.`);
+  res.send(`user at ${id} is updated by put method.`);
+}else{
+  res.send("please send complete user except id .")
+}
+
 };
 
 // ----------- updating data with patch method --------------------
