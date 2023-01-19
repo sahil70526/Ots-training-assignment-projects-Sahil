@@ -1,43 +1,21 @@
-{{!-- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Title</th>
-      <th scope="col">Author</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each books}}
-    <tr>
-      <th scope="row">{{this.id}}</th>
-      <td>{{this.title}}</td>
-      <td>{{this.author}}</td>
-    </tr>
-    {{/each}}
+<div class="grid text-center main-card">
+  
+  {{#each data}}
+  <div class="g-col-4 ">
+  <div class="card" style="width: 20rem;">
+    <div class="card-image-container">
+    <img  src={{this.img}} class="cimage" alt="book-img">
+    </div>
 
-  </tbody>
-</table>
-
-
-<div class="grid text-center">
-  <div class="g-col-4">
-  {{#each books}}
-
-<div class="card" style="width: 18rem;">
-  <img src={{this.img}} class="card-img-top" alt="book-img">
   <div class="card-body">
     <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text"></p>
+    <p class="card-text">{{this.discription}}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
-
+</div>
 {{/each}}
   </div>
 
-</div> --}}
 
-{{#each data}}
-<h1>{{this.data.title}}</h1>
-{{/each}}
 

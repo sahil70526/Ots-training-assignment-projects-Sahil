@@ -1,9 +1,20 @@
 import express from 'express';
 import { engine } from 'express-handlebars';
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
+import Handlebars from 'handlebars';
+import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
 import books from "./data/books.js";
 const app = express();
 app.use(express.json());
+
+
+app.engine('handlebars', engine(
+  {
+    handlebars: allowInsecurePrototypeAccess(Handlebars)
+  }
+));
+app.set('view engine', 'handlebars');
+app.set('views', './views');
 
 // db connection string -----------------------------------------
 
@@ -34,13 +45,10 @@ const bookInfo= mongoose.model('books',BookSchema);
 //     res.send(data);
 // })
 
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
-app.set('views', './views');
+
 
 app.get('/', async(req, res) => {
     let data= await bookInfo.find();
-    console.log(data);
     if(data.length>0){
         res.render('home',{
             data:data
