@@ -9,6 +9,7 @@ app.use(express.json());
 
 
 app.engine('handlebars', engine(
+
   {
     handlebars: allowInsecurePrototypeAccess(Handlebars)
   }
@@ -57,6 +58,14 @@ app.get('/', async(req, res) => {
 
 });
 
+app.get('/:id',async(req,res)=>{
+  const {id}= req.params;
+  let specificBook= await bookInfo.findById(id);
+  res.render('specificBook',specificBook);
+
+});
+
+
 app.get('/membership', (req, res) => {
     res.render('membership');
 });
@@ -64,6 +73,9 @@ app.get('/join', (req, res) => {
     res.render('join');
 });
 
+app.get('/addbook',(req,res)=>{
+  res.render('addUpdateForm')
+})
 
 app.listen(3000,(req,res)=>{
     console.log("server started at port");

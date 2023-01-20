@@ -1,21 +1,39 @@
-<div class="grid text-center main-card">
-  
-  {{#each data}}
-  <div class="g-col-4 ">
-  <div class="card" style="width: 20rem;">
-    <div class="card-image-container">
-    <img  src={{this.img}} class="cimage" alt="book-img">
+<div class="container">
+  <div class=" d-flex justify-content-between mt-5">
+    <div style="background-color: rgb(69, 111, 250);border-radius: 5px; text-align: center;">
+      <span style="color: white; font-size:xx-large">List of books</span>
     </div>
 
-  <div class="card-body">
-    <h5 class="card-title">{{this.title}}</h5>
-    <p class="card-text">{{this.discription}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
-{{/each}}
+    <a href="/join"><button class="btn btn-add-Book btn-primary">Add Book</button></a>
+    
   </div>
 
+  <div class="row mt-5 mb-5">
+
+    {{#each data}}
+
+    <div class="col-sm-3 mt-4">
+
+      <a class="links" href="/{{this.id}}">
+
+        <div class="card">
+
+          <img src={{this.img}} height="250px" width="100%" />
+
+          <h6 class="pl-3 pt-2" style="text-align: center;">{{this.title}}</h3>
+
+            <p class="pl-3" style="text-align: center;">{{this.author}}</p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+    {{/each}}
 
 
+
+  </div>
+
+</div>
