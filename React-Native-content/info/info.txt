@@ -1,3 +1,0 @@
-Command for react native :- npx react-native <name>
-2. In raect native we use {view} to create a container.
-3. We have to import {View }from react-native.
