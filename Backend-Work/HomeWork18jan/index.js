@@ -26,6 +26,7 @@ mongoose.connect("mongodb+srv://demo1234:demo1234@cluster0.s2lbzmy.mongodb.net/l
   console.log(err);
 });
 
+
 // creating new books schema -----------------------------------------
 
 const BookSchema= new mongoose.Schema(
@@ -38,17 +39,17 @@ const BookSchema= new mongoose.Schema(
   );
 
 //   creating a new bookInfo collection ------------------------------
+
+
 const bookInfo= mongoose.model('books',BookSchema);
 
-
 // app.post('/',async(req,res)=>{
-//     let data= await bookInfo.insertMany(books);
-//     res.send(data);
+//   let data= await bookInfo.insertMany(books);
+//   console.log(data);
 // })
 
-
-
 app.get('/', async(req, res) => {
+  
     let data= await bookInfo.find();
     if(data.length>0){
         res.render('home',{
@@ -58,12 +59,7 @@ app.get('/', async(req, res) => {
 
 });
 
-app.get('/:id',async(req,res)=>{
-  const {id}= req.params;
-  let specificBook= await bookInfo.findById(id);
-  res.render('specificBook',specificBook);
 
-});
 
 
 app.get('/membership', (req, res) => {
@@ -75,8 +71,18 @@ app.get('/join', (req, res) => {
 
 app.get('/addbook',(req,res)=>{
   res.render('addUpdateForm')
-})
+});
 
-app.listen(3000,(req,res)=>{
+
+app.get('/:id',async(req,res)=>{
+  const {id}= req.params;
+if(mongoose.Types.ObjectId.isValid(id)){
+  let specificBook= await bookInfo.findById(id);
+  res.render('specificBook',specificBook);
+}
+});
+
+
+app.listen(3001,(req,res)=>{
     console.log("server started at port");
 });
