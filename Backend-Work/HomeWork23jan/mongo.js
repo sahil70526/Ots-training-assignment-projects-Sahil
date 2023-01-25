@@ -22,6 +22,6 @@ const BookSchema= new mongoose.Schema(
 //   creating a new bookInfo collection ------------------------------
 
 
-const bookInfo= mongoose.model('books',BookSchema);
+const bookInfo= mongoose.model('books',BookSchema,'test');
 
 export default bookInfo;

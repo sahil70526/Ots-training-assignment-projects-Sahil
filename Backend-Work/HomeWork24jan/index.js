@@ -18,11 +18,6 @@ app.get('/profile',(req,res)=>{
  console.log(userDetails);
 });
 
-
-
-
-
-
 app.listen(3000,()=>{
     console.log("server started on port 3000");
 })
