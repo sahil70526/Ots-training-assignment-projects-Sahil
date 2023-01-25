@@ -82,6 +82,12 @@ if(mongoose.Types.ObjectId.isValid(id)){
 }
 });
 
+// app.get('/:id',async(re,res)=>{
+//   const {id}= req.params;
+//   let sameBooks= await bookInfo.find({author:id});
+
+// });
+
 
 app.listen(3001,(req,res)=>{
     console.log("server started at port");
