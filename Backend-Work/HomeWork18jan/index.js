@@ -46,11 +46,18 @@ const bookInfo= mongoose.model('books',BookSchema);
 // app.post('/',async(req,res)=>{
 //   let data= await bookInfo.insertMany(books);
 //   console.log(data);
-// })
-
+// // })
+// let input = document.getElementById("inputSearch").value
+// let inputData= document.getElementById("inputSearch").value;
+// // function checkInput(){
+// //  inputData= document.getElementById("inputSearch").value;
+// // }
+// console.log(input);
 app.get('/', async(req, res) => {
   
     let data= await bookInfo.find();
+    
+    console.log(inputData);
     if(data.length>0){
         res.render('home',{
             data:data
