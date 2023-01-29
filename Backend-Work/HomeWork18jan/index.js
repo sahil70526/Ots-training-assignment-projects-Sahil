@@ -3,9 +3,12 @@ import { engine } from 'express-handlebars';
 import mongoose from 'mongoose';
 import Handlebars from 'handlebars';
 import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
+import bodyParser from 'body-parser';
 import books from "./data/books.js";
 const app = express();
-app.use(express.json());
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.engine('handlebars', engine(
@@ -43,21 +46,11 @@ const BookSchema= new mongoose.Schema(
 
 const bookInfo= mongoose.model('books',BookSchema);
 
-// app.post('/',async(req,res)=>{
-//   let data= await bookInfo.insertMany(books);
-//   console.log(data);
-// // })
-// let input = document.getElementById("inputSearch").value
-// let inputData= document.getElementById("inputSearch").value;
-// // function checkInput(){
-// //  inputData= document.getElementById("inputSearch").value;
-// // }
-// console.log(input);
+
+
 app.get('/', async(req, res) => {
   
     let data= await bookInfo.find();
-    
-    console.log(inputData);
     if(data.length>0){
         res.render('home',{
             data:data
@@ -66,6 +59,13 @@ app.get('/', async(req, res) => {
 
 });
 
+app.post('/',async(req,res)=>{ 
+  let inputData= req.body.search;
+  let data= await bookInfo.find({author:inputData});
+  res.render('home',{
+    data:data
+});
+})
 
 
 
@@ -80,6 +80,21 @@ app.get('/addbook',(req,res)=>{
   res.render('addUpdateForm')
 });
 
+app.post('/addbook',async(req,res)=>{
+const data= new bookInfo({
+  title:req.body.title,
+  author:req.body.author,
+  img:req.body.img,
+  discription:req.body.discription
+});
+const result = await data.save();
+if(result.title){
+  res.send('<h1>Congrats Your book has been added.</h1>')
+}else{
+  res.send("<h1>Sorry Your book can't Be added because you have added wrong credientals.</h1>")
+}
+})
+
 
 app.get('/:id',async(req,res)=>{
   const {id}= req.params;
@@ -88,13 +103,6 @@ if(mongoose.Types.ObjectId.isValid(id)){
   res.render('specificBook',specificBook);
 }
 });
-
-// app.get('/:id',async(re,res)=>{
-//   const {id}= req.params;
-//   let sameBooks= await bookInfo.find({author:id});
-
-// });
-
 
 app.listen(3001,(req,res)=>{
     console.log("server started at port");

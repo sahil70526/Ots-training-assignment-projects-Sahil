@@ -1,17 +1,22 @@
 <div class="container">
   <div class=" d-flex justify-content-between mt-5">
     <div style="background-color: rgb(69, 111, 250);border-radius: 5px; text-align: center;">
-      <span style="color: white; font-size:xx-large">List of books</span>
-      <script src="../index.js"></script>
-      <input type="text" placeholder="search for books" id="inputSearch"  onchange="checkInput()"/>
+      <span style="color: white; font-size:xx-large">List of books</span>   
     </div>
+    <form action="/" method="post">
+  <div class="mb-3">
+    <input name="search" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Search book by author name ">
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
 
     <a href="/addbook"><button class="btn btn-add-Book btn-primary">Add Book</button></a>
     
   </div>
 
-  <div class="row mt-5 mb-5">
-
+<div class="entry">
+{{#if data.length}}
+<div  class="row mt-5 mb-5">
     {{#each data}}
 
     <div class="col-sm-3 mt-4">
@@ -33,9 +38,10 @@
     </div>
 
     {{/each}}
-
-
-
-  </div>
+</div>
+{{else}}
+<h1>Unknown Author</h1>
+{{/if}}
+</div>
 
 </div>

@@ -1,20 +1,47 @@
 <div class="container" style="width: 50%; margin-top:40px">
-    <div>
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Title Of Book </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Five Point Someone">
+  <div>
+    <form action="/addbook" method="post">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title Of Book
+        </label>
+        <input
+         name="title"
+          class="form-control"
+          placeholder="Five Point Someone"
+        />
 
-            <label for="exampleFormControlInput1" class="form-label">Author Of Book </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Chetan Bhagat ">
+        <label for="exampleFormControlInput1" class="form-label">Author Of Book
+        </label>
+        <input
+          name="author"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="Chetan Bhagat "
+        />
 
-            <label for="exampleFormControlInput1" class="form-label">Image Of Book </label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ghsghghdghd.png">
-        </div>
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Enter Description </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+        <label for="exampleFormControlInput1" class="form-label">Image Of Book
+        </label>
+        <input
+        name="img"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="ghsghghdghd.png"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Enter
+          Description
+        </label>
+        <textarea
+        name="discription"
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Book</button>
+    </form>
 
-    </div>
+  </div>
 
 </div>
