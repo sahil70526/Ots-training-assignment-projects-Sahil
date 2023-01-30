@@ -1,0 +1,16 @@
+{
+  "name": "weatherproject",
+  "version": "1.0.0",
+  "description": "We are going to create a weather application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sahil Singh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.2.0",
+    "express": "^4.17.1"
+  }
+}

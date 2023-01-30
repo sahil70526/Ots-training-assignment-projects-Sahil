@@ -1,0 +1,10 @@
+body{
+  display:flex;
+  background-color: powderblue;
+  padding: 50% 50%;
+  margin:auto;
+}
+.formLayout{
+  height:100%;
+  width:50%;
+}
