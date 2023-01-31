@@ -11,7 +11,7 @@ app.get("/",function(req,res){
 });
 app.post("/",function(req,res){
   const querry=req.body.cityName;
-  const url = "https://api.openweathermap.org/data/2.5/weather?q="+querry+"&appid=39a4ebd67c8aae0b7021e69ff34c45d7&units=metric"
+  const url = "https://api.openweathermap.org/data/2.5/weather?q="+querry+"&appid=877ea5d6c238269928dee4b65e6858a3&units=metric"
   https.get(url,function(response){
     console.log(response);
     response.on("data",function(data){
@@ -26,7 +26,7 @@ app.post("/",function(req,res){
       res.write("<h1>The tempreture is :"+temp+"degree celcious in "+querry+"</h1>")
       res.write("<img src="+imgurl+"></img>");
       res.send();
-      res.redirect("/");
+      // res.redirect("/");
     })
   });
 });
