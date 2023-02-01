@@ -46,7 +46,7 @@ app.get("/todos", async (req, res) => {
 
 app.post("/todos/add", (req, res) => {
   const newTodo = new ToDo({
-    description: req.body.description,
+    ...req.body
   });
   newTodo.save();
   res.json(newTodo);
@@ -62,12 +62,14 @@ app.patch("/todos/edit/:id", async (req, res) => {
   const { id } = req.params;
   const selectedTodo = await ToDo.findById(id);
   selectedTodo.completed = !selectedTodo.completed;
-  selectedTodo.save();
+  await selectedTodo.save();
   res.send(selectedTodo);
 });
 
 app.delete("/todos/delete/:id",async(req,res)=>{
   const {id}=req.params;
+  console.log(id);
   const data= await ToDo.deleteOne({_id:id});
+  console.log(data);
   res.send(data);
 })
